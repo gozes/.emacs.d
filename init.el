@@ -4,7 +4,10 @@
 
 (tool-bar-mode -1) 
 
+(global-linum-mode t)
+
 (require 'package)
   (package-initialize)
 (add-to-list 'package-archives 
  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(require 'color-theme-solarized)
