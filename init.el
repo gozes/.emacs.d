@@ -10,4 +10,4 @@
   (package-initialize)
 (add-to-list 'package-archives 
  '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(require 'color-theme-solarized)
+(load-theme 'solarized-light t)
