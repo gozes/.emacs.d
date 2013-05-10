@@ -6,10 +6,11 @@
 
 (global-linum-mode t)
 
-(require 'package)
-  (package-initialize)
-(add-to-list 'package-archives 
- '("melpa" . "http://melpa.milkbox.net/packages/") t)
+;; enables ido-mode everyware
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
 (load-theme 'solarized-light t)
 
 ;; store all backup and autosave files in the tmp dir
@@ -18,5 +19,7 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
-(load setup-ac-mode)
-
+;; set up lode path for other config
+(add-to-list 'load-path user-emacs-directory)
+(load "setup-ac-mode")
+(load "setup-packages)
