@@ -10,8 +10,9 @@
 (add-to-list 'load-path user-emacs-directory)
 (load "setup-packages")
 (load "setup-ac-mode")
+(load "setup-ruby-mode")
 
-
+;; loads my prefer theme
 (load-theme 'solarized-light t)
 
 ;; enables ido-mode everyware

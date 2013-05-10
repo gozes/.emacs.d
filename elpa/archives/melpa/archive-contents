@@ -645,7 +645,7 @@
 	   [(20130312 1839)
 	    nil "Support sequential operation which omitted prefix keys. [github]" single])
  (smartparens .
-	      [(20130507 1413)
+	      [(20130510 1736)
 	       ((dash
 		 (1 1 0)))
 	       "Automatic insertion, wrapping and paredit-like navigation with user defined pairs. [github]" tar])
@@ -1290,7 +1290,7 @@
 	     [(20090723 1719)
 	      nil "include a filesystem subtree into an org file [git]" single])
  (org-dotemacs .
-	       [(20130504 153)
+	       [(20130510 1711)
 		((org
 		  (7 9 3))
 		 (cl-lib
@@ -1374,7 +1374,7 @@
       [(20120507 7)
        nil "Emacs mode for filesystem navigation [hg]" tar])
  (naquadah-theme .
-		 [(20130503 1719)
+		 [(20130510 1229)
 		  nil "A theme based on Tango color set [git]" single])
  (namespaces .
 	     [(20130327 1150)
@@ -1449,7 +1449,7 @@
 	    (0 2 2)))
 	  "mocking framework for emacs [github]" single])
  (mo-vi-ment-mode .
-		  [(20130509 2145)
+		  [(20130510 2002)
 		   nil "Provide vi-like cursor movement that's easy on the fingers [github]" single])
  (mo-git-blame .
 	       [(20120917 736)
@@ -1759,7 +1759,7 @@
 	   [(20130418 1051)
 	    nil "No description available. [github]" tar])
  (js2-refactor .
-	       [(20130508 1605)
+	       [(20130510 1006)
 		((js2-mode
 		  (20101228))
 		 (multiple-cursors
@@ -1772,7 +1772,7 @@
 		  (20130218)))
 		"A JavaScript refactoring library for emacs. [github]" tar])
  (js2-mode .
-	   [(20130502 2359)
+	   [(20130510 1955)
 	    ((emacs
 	      (24 1)))
 	    "Improved JavaScript editing mode [github]" tar])
@@ -1966,7 +1966,7 @@
 		(0 2)))
 	      "Group ibuffer's list by VC project, or show VC status [github]" single])
  (hy-mode .
-	  [(20130501 2211)
+	  [(20130509 1207)
 	   nil "Major mode for Hy code [github]" single])
  (hungry-delete .
 		[(20120128 1856)
@@ -2275,15 +2275,9 @@
  (gitty .
 	[(20121014 1642)
 	 nil "vc-mode extension for fast git interaction [github]" single])
- (gitignore-mode .
-		 [(20130506 924)
-		  nil "Major mode for editing .gitignore files [github]" single])
  (github-browse-file .
 		     [(20130408 1640)
 		      nil "View the file you're editing on GitHub [github]" single])
- (gitconfig-mode .
-		 [(20130506 924)
-		  nil "Major mode for editing .gitconfig files [github]" single])
  (git-gutter-fringe .
 		    [(20130416 1524)
 		     ((git-gutter
@@ -2297,9 +2291,6 @@
  (git-dwim .
 	   [(20130130 2150)
 	    nil "Context-aware git commands such as branch handling [wiki]" single])
- (git-commit-mode .
-		  [(20130506 924)
-		   nil "Major mode for editing git commit messages [github]" single])
  (git-blame .
 	    [(20110509 1226)
 	     nil "Minor mode for incremental blame for Git [github]" single])
@@ -2333,7 +2324,7 @@
 	(0 1)))
       "A GitHub library for Emacs [github]" tar])
  (gedit-mode .
-	     [(20130427 2348)
+	     [(20130509 1906)
 	      ((tabbar
 		(0))
 	       (sr-speedbar
@@ -2385,7 +2376,7 @@
 		 (1 4)))
 	       "F# mode for Emacs [github]" tar])
  (fringe-helper .
-		[(20130427 1608)
+		[(20130510 1607)
 		 nil "helper functions for fringe bitmaps [github]" tar])
  (framemove .
 	    [(20130328 1133)
@@ -2503,7 +2494,7 @@
 		 [(20130420 59)
 		  nil "A flymake handler for elixir-mode .ex files. [github]" single])
  (flymake-easy .
-	       [(20130420 1257)
+	       [(20130510 841)
 		nil "Helpers for easily building flymake checkers [github]" single])
  (flymake-cursor .
 		 [(20121220 957)
@@ -2658,7 +2649,7 @@
 		     (20130225 1754)))
 		   "Data viewer for GNU R [github]" single])
  (ess .
-      [(20130509 833)
+      [(20130510 1246)
        nil "No description available. [github]" tar])
  (espuds .
 	 [(20130226 2124)
@@ -3074,7 +3065,7 @@
 		[(20130417 1034)
 		 nil "Search the word at point with Dash [github]" single])
  (dash .
-       [(20130424 943)
+       [(20130510 1711)
 	nil "A modern list library for Emacs [github]" single])
  (dart-mode .
 	    [(20121218 1449)
@@ -3292,7 +3283,7 @@
 	      [(20121205 1453)
 	       nil "Clickable text defined by regular expression [github]" single])
  (butler .
-	 [(20130506 2357)
+	 [(20130509 2215)
 	  ((web
 	    (0 3 7)))
 	  "Client for Jenkins [github]" single])
@@ -3363,7 +3354,7 @@
 		  [(20130422 1322)
 		   nil "Fixing weird quirks and poor defaults [github]" single])
  (bdo .
-      [(20130314 1020)
+      [(20130510 1321)
        nil "Do things to a browser page from Emacs. BETA! [github]" tar])
  (bbdb2erc .
 	   [(20130507 1007)
@@ -3381,6 +3372,9 @@
  (bbcode-mode .
 	      [(20130227 1437)
 	       nil "Major mode for writing BBCode markup [github]" single])
+ (batch-mode .
+	     [(20110113 952)
+	      nil "major mode for editing ESRI batch scrips [wiki]" single])
  (bash-completion .
 		  [(20111120 1539)
 		   nil "BASH completion for the shell buffer [github]" tar])
@@ -3592,5 +3586,14 @@
 	      nil "auto-complete.el source for dabbrev [wiki]" single])
  (abl-mode .
 	   [(20120718 1655)
-	    nil "Python TDD minor mode [github]" single]))
+	    nil "Python TDD minor mode [github]" single])
+ (gitignore-mode .
+		 [(20130506 924)
+		  nil "Major mode for editing .gitignore files [github]" single])
+ (gitconfig-mode .
+		 [(20130506 924)
+		  nil "Major mode for editing .gitconfig files [github]" single])
+ (git-commit-mode .
+		  [(20130506 924)
+		   nil "Major mode for editing git commit messages [github]" single]))
 
