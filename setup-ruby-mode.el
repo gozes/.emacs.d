@@ -1,4 +1,4 @@
-
+(setq ruby-deep-indent-paren nil)
 
 ;; Rake files are ruby, too, as are gemspecs, rackup files, and gemfiles.
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))

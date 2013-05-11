@@ -1,1 +1,16 @@
 env
+evn
+evn
+env
+ri --list-doc-dir
+rvm use system
+env|grep rvm
+ri Array
+ri
+ri
+ri
+ls
+ri Rake::TestTask
+cd code/CodeKata/1/
+clear
+rake test
