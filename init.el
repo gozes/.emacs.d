@@ -13,7 +13,7 @@
 (load "setup-ruby-mode")
 
 ;; loads my prefer theme
-(load-theme 'solarized-light t)
+(load-theme 'phoenix-dark-pink t)
 
 ;; enables ido-mode everyware
 (setq ido-enable-flex-matching t)
