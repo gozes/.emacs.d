@@ -14,3 +14,28 @@ ri Rake::TestTask
 cd code/CodeKata/1/
 clear
 rake test
+git status
+git add .
+git commit -m "remvoed spec style test as I won't be using them any more I'm sticking to xunit style"
+git push
+cd ..
+ls
+rake test
+rake test
+rake test
+rake test
+rake test
+rake test
+rake test
+rake test
+rake test
+rake test
+rake test
+rake test
+rake test
+rake test
+git add .
+git add .
+git commit -m "first passing test"
+git push
+rake test
