@@ -1,16 +1,24 @@
 (setq org-directory "~/Dropbox/Org")
 (setq org-default-note-file  "~/Dropbox/Org/orgaanizer.org")
+(setq org-deadline-warning-days 4)
+
+(defun gozes-org-agenda-skip-scheduled ()
+  (org-agenda-skip-entry-if 'scheduled 'deadline
+                            'regexp "\n]+>"))
 
 (setq org-reverse-note-order t)
 (setq org-refile-targets
-      '(("~/Dropbox/Org/orgaanizer.org" . (:maxlevel . 4))
+      '(("~/Dropbox/Org/orgaanizer.org" . (:maxlevel . 2))
         ("~/Dropbox/Org/books.org" . (:maxlevel . 4))
         ("~/Dropbox/Org/build.org" . (:maxlevel . 4))
-        ("~/Dropbox/Org/blog.org" . (:maxlevel . 4))))
+        ("~/Dropbox/Org/blog.org" . (:maxlevel . 4))
+	("~/Dropbox/Org/appointments.org" . (:maxlevel . 2))))
+
 
 (setq org-agenda-files '("~/Dropbox/Org/orgaanizer.org"
                          "~/Dropbox/Org/books.org"
                          "~/Dropbox/Org/build.org"
+			 "~/Dropbox/Org/appointments.org"
                          "~/Dropbox/Org/blog.org"
                          "~/Dropbox/Org/routines.org"))
 
@@ -37,7 +45,6 @@
           %?
           :PROPERTIES:
           :Effort: %^{effort|1:00|0:05|0:15|0:30|2:00|4:00}
-          :Added On:%t
           :END:")
         ("b" "Book" entry
          (file+headline "~/Dropbox/Org/books.org" "Inbox")
@@ -55,7 +62,8 @@
 
 
 (setq org-agenda-custom-commands
-      '(("o" todo "TODO")
+      '(("o" todo "TODO"
+	 ((org-agenda-skip-function 'gozes-org-agenda-skip-scheduled)))
         ("w" "Waiting for" todo "WAITING")
         ("b" todo ""
          (org-agenda-files '("~/Dropbox/Org/build.org")))
