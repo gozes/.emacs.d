@@ -16,7 +16,7 @@
 
 (setq org-todo-keywords
       '((sequence "TODO(t!)" "|" "DONE(d!)")
-        (sequence "STARTED(s!)" "WAITING(w@/!)" "|" "DEFERRED(f@)" )
+        (sequence "STARTED(s!)" "WAITING(w@/!)" "NEXT ACTION(n)" "|" "DEFERRED(f@)" )
         (sequence "|" "CANCELED(c@)")))
 
 
