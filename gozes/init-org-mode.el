@@ -1,5 +1,5 @@
 (setq org-directory "~/Dropbox/Org")
-(setq org-default-note-file  "~/Dropbox/Org/orgaanizer.org"
+(setq org-default-note-file  "~/Dropbox/Org/orgaanizer.org")
 
 (setq org-reverse-note-order t)
 (setq org-refile-targets
@@ -54,13 +54,10 @@
 
 
 (setq org-agenda-custom-commands
-      '(("o" todo ""
-         (org-agenda-files '("~/Dropbox/Org/orgaanizer.org"))
-         (org-agenda-overriding-header "Unscheduled TODO entries:"))
+      '(("o" todo "TODO")
         ("w" "Waiting for" todo "WAITING")
         ("b" todo ""
-         (org-agenda-files '("~/Dropbox/Org/build.org"))
-         (org-agenda-overriding-header "Build TODO entries:"))
+         (org-agenda-files '("~/Dropbox/Org/build.org")))
         ("d" "Deferred Task" todo "DEFERRED")))
 
 
