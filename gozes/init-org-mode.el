@@ -1,6 +1,5 @@
 (setq org-directory "~/Dropbox/Org")
-(setq org-default-note-file  "~/Dropbox/Org/orgaanizer.org")
-
+(setq org-default-note-file  "~/Dropbox/Org/orgaanizer.org"
 
 (setq org-reverse-note-order t)
 (setq org-refile-targets
