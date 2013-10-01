@@ -14,6 +14,9 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+;; update the buffuer if a file has change on disk
+(global-auto-revert-mode)
+
 (eval-after-load 'org-mode (require 'init-org-mode))
 (eval-after-load 'emacs-lisp-mode (require 'init-elisp))
 (eval-after-load 'ruby-mode (require 'init-ruby-mode))
