@@ -7,15 +7,18 @@
 (require 'init-keybinds)
 (require 'init-ido)
 
-(eval-after-load 'org-mode (require 'init-org-mode))
-(eval-after-load 'emacs-lisp-mode (require 'init-elisp))
-(eval-after-load 'ruby-mode (require 'init-ruby-mode))
 
 ;; store all backup and autosave files in the tmp dir
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
+
+(eval-after-load 'org-mode (require 'init-org-mode))
+(eval-after-load 'emacs-lisp-mode (require 'init-elisp))
+(eval-after-load 'ruby-mode (require 'init-ruby-mode))
+
+
 
 
 
