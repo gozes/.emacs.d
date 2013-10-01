@@ -5,3 +5,11 @@ emacs.d/*
 !emacs.d/gozes/
 
 emacs.d/gozes/**/*.elc
+
+elpa/*
+
+*.dat
+
+auto-save*
+
+~*
