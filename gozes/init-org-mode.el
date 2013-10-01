@@ -37,6 +37,7 @@
           %?
           :PROPERTIES:
           :Effort: %^{effort|1:00|0:05|0:15|0:30|2:00|4:00}
+          :Added On:%t
           :END:")
         ("b" "Book" entry
          (file+headline "~/Dropbox/Org/books.org" "Inbox")
