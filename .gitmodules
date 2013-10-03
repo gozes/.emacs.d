@@ -1,0 +1,3 @@
+[submodule "gozes/erc-sasl"]
+	path = gozes/erc-sasl
+	url = https://github.com/joseph-gay/erc-sasl.git
