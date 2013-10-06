@@ -2,7 +2,8 @@
 
 (dolist (repo '(("melpa" . "http://melpa.milkbox.net/packages/")
                 ("marmalade" . "http://marmalade-repo.org/packages/")
-                ("elpa" . "http://tromey.com/elpa/")))
+                ("elpa" . "http://tromey.com/elpa/")
+		("org" . "http://orgmode.org/elpa/")))
   (add-to-list 'package-archives repo))
 
 (defun gozes-package-refresh-and-install (name)
@@ -42,6 +43,13 @@
  'auto-complete
  'phoenix-dark-pink-theme
  'phoenix-dark-mono-theme
+ 'orglue
+ 'ctable
+ 'epic
+ 'org-mac-link
+ 'htmlize
+ 'org-octopress
+ 'org
  )
 
 
