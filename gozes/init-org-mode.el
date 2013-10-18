@@ -1,3 +1,6 @@
+(flyspell-mode)
+(org-octopress)
+
 ;; octopress setup
 (require 'org-octopress)
 (setq org-octopress-directory-top "~/.blog/source")
@@ -5,7 +8,7 @@
 (setq org-octopress-directory-org-top "~/.blog/source")
 (setq org-octopress-directory-org-posts "~/.blog/source/blog")
 (setq org-octopress-setup-file "~/.blog/setupfile.org")
-;(define-key "\C-c \C-o o" 'org-octopress-new-post)
+(define-key "\C-c \C-o o" 'org-octopress-new-post)
 ;; ends octopress config
 
 
