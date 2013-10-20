@@ -5,5 +5,6 @@
 (add-to-list 'auto-mode-alist '("Gemfile\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec\\'" . ruby-mode))
 (require 'ruby-end)
+(ruby-end-mode)
 
 (provide 'init-ruby-mode)
