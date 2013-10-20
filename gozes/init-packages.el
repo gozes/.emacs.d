@@ -50,6 +50,7 @@
  'htmlize
  'org-octopress
  'org
+ 'ruby-end
  )
 
 
