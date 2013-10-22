@@ -7,7 +7,7 @@
 (setq org-octopress-directory-org-top "~/.blog/source")
 (setq org-octopress-directory-org-posts "~/.blog/source/blog")
 (setq org-octopress-setup-file "~/.blog/setupfile.org")
-(add-hook 'org-mode-hook (lambda () (define-key org-mode-map (kbd"\C-c \C-o o") 'org-octopress-new-post)))
+;(add-hook 'org-mode-hook (lambda () (define-key org-mode-map (kbd"\C-c \C-o o") 'org-octopress-new-post)))
 ;(org-octopress)
 ;; ends octopress config
 
@@ -23,9 +23,9 @@
 (setq org-reverse-note-order t)
 (setq org-refile-targets
       '(("~/Dropbox/Org/orgaanizer.org" . (:maxlevel . 2))
-        ("~/Dropbox/Org/books.org" . (:maxlevel . 4))
-        ("~/Dropbox/Org/build.org" . (:maxlevel . 4))
-        ("~/Dropbox/Org/blog.org" . (:maxlevel . 4))
+        ("~/Dropbox/Org/books.org" . (:maxlevel . 3))
+        ("~/Dropbox/Org/build.org" . (:maxlevel . 3))
+        ("~/Dropbox/Org/blog.org" . (:maxlevel . 3))
 	("~/Dropbox/Org/appointments.org" . (:maxlevel . 2))))
 
 
