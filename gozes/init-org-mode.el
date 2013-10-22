@@ -7,7 +7,7 @@
 (setq org-octopress-directory-org-top "~/.blog/source")
 (setq org-octopress-directory-org-posts "~/.blog/source/blog")
 (setq org-octopress-setup-file "~/.blog/setupfile.org")
-(add-hook 'org-mode-hook (lambda () (define-key org-mode-map "\C-c \C-o o" 'org-octopress-new-post)))
+(add-hook 'org-mode-hook (lambda () (define-key org-mode-map (kbd"\C-c \C-o o") 'org-octopress-new-post)))
 ;(org-octopress)
 ;; ends octopress config
 
