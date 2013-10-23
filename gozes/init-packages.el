@@ -51,6 +51,7 @@
  'org-octopress
  'org
  'ruby-end
+ 'markdown-mode
  )
 
 

@@ -2,12 +2,11 @@
 ;; set up lode path for other config
 (defconst  gozes-config (concat user-emacs-directory "gozes/") "gozes-config")
 (add-to-list 'load-path gozes-config)
-;(add-to-list 'load-path (concat gozes-config "erc-sasl/"))
 (require 'init-packages)
 (require 'init-looks)
 (require 'init-ido)
 (require 'init-keybinds)
-
+(require 'init-mode-alist)
 
 ;; store all backup and autosave files in the tmp dir
 (setq backup-directory-alist
