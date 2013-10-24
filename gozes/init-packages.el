@@ -52,6 +52,8 @@
  'org
  'ruby-end
  'markdown-mode
+ 'graphviz-dot-mode
+ 'magit
  )
 
 
