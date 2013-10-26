@@ -54,6 +54,7 @@
  'markdown-mode
  'graphviz-dot-mode
  'magit
+ 'git-commit-mode
  )
 
 
