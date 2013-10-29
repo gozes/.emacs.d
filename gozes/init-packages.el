@@ -43,18 +43,14 @@
  'auto-complete
  'phoenix-dark-pink-theme
  'phoenix-dark-mono-theme
- 'orglue
- 'ctable
- 'epic
- 'org-mac-link
- 'htmlize
- 'org-octopress
  'org
  'ruby-end
  'markdown-mode
  'graphviz-dot-mode
  'magit
- 'git-commit-mode
+ 'git-commit-mode ;depend for magit
+ 'git-rebase-mode ;depend for magit
+ 'haskell-mode
  )
 
 
