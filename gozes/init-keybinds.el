@@ -9,6 +9,7 @@
 			   (require 'creds)
 			   (erc :server "irc.freenode.net" :port "6667" :nick "gozes" :password gozes-freenode-irc-password)))
 
-
+;; magit
+(global-set-key "\C-c \C-g" 'magit-status)
 
 (provide 'init-keybinds)

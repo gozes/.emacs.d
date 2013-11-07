@@ -43,14 +43,18 @@
  'auto-complete
  'phoenix-dark-pink-theme
  'phoenix-dark-mono-theme
- 'org
- 'ruby-end
  'markdown-mode
  'graphviz-dot-mode
  'magit
  'git-commit-mode ;depend for magit
  'git-rebase-mode ;depend for magit
- 'haskell-mode
+ 'cljure-mode
+ 'cider
+ 'ac-nrepl
+ 'cl-lib ; depned for smartparens
+ 'dash ; depened for smartparens
+ 'smartparens
+ 'rainbow-delimiters
  )
 
 
