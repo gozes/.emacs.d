@@ -51,6 +51,8 @@
  'git-commit-mode ;depend for magit
  'git-rebase-mode ;depend for magit
  'haskell-mode
+ 'flymake-easy
+ 'flymake-haskell-multi
  )
 
 
