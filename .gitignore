@@ -22,3 +22,5 @@ gozes/creds.el
 *ercrc*
 
 url/*
+
+session.*
