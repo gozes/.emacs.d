@@ -53,6 +53,8 @@
  'haskell-mode
  'flymake-easy
  'flymake-haskell-multi
+ 'use-package
+ 'bind-key
  )
 
 
