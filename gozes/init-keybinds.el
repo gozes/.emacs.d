@@ -1,13 +1,14 @@
 ;; Org-mode global keybinds
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-cr" 'org-capture)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
+(bind-key "C-c l" 'org-store-link)
+(bind-key "C-c r" 'org-capture)
+(bind-key "C-c a" 'org-agenda)
+(bind-key "C-c b" 'org-iswitchb)
 
 ;; ERC  Keybinds
-(global-set-key "\C-cef" (lambda () (interactive)
-			   (require 'creds)
-			   (erc :server "irc.freenode.net" :port "6667" :nick "gozes" :password gozes-freenode-irc-password)))
+(bind-key "C-c e f"
+					(lambda () (interactive)
+						(require 'creds)
+						(erc :server "irc.freenode.net" :port "6667" :nick "gozes" :password gozes-freenode-irc-password)))
 
 
 
