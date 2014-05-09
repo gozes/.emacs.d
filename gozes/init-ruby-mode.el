@@ -1,7 +1,7 @@
-(setq ruby-deep-indent-paren nil)
+;; (setq ruby-deep-indent-paren nil)
 
 
-(require 'ruby-end)
-(ruby-end-mode)
+;; (require 'ruby-end)
+;; (ruby-end-mode)
 
-(provide 'init-ruby-mode)
+;; (provide 'init-ruby-mode)
