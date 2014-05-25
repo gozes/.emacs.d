@@ -14,6 +14,12 @@
 (req-package magit
   :bind ("C-c C-g" . magit-status))
 
+(req-package guide-key
+  :init (progn
+	  (require 'guide-key)
+	  (setq guide-key/guide-key-sequence '("C-x r" "C-x 4"))
+	  (guide-key-mode 1)))
+
 (setq next-line-add-newlines t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
