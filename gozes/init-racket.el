@@ -8,5 +8,5 @@
 
 
 (defun gozes-racket-mode-guide-key-hook ()
-  (guide-key/add-local-guide-key-sequence "C-")
+  (guide-key/add-local-guide-key-sequence "C-c")
   (guide-key/add-local-highlight-command-regexp "racket-"))
