@@ -2,7 +2,7 @@
   :bind ("C-c r" . racket-run)
   :init (progn
 	  (setq racket-program "/usr/bin/racket")
-	  (setq reco-program "/usr/bin/reco")
+	  (setq reco-program "/usr/bin/raco")
 	  (add-hook 'racket-mode-hook 'gozes-racket-mode-guide-key-hook)))
 
 

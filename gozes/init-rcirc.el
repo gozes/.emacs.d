@@ -7,6 +7,6 @@
   :config (progn	   
 	    (add-to-list 'rcirc-server-alist
 		       '("irc.freenode.net"
-			 :channels ("#emacs" "#clojure")
+			 :channels ("#emacs" "#clojure" "#racket")
 			 :port 6697
 			 :encryption tls))))
