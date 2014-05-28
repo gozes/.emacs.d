@@ -20,6 +20,8 @@
 	  (setq guide-key/guide-key-sequence '("C-x r" "C-x 4"))
 	  (guide-key-mode 1)))
 
+(req-package rainbow-delimiters)
+
 (setq next-line-add-newlines t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
