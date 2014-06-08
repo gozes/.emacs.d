@@ -15,5 +15,5 @@
 
 (bind-key "C-," 'haskell-move-nested-left haskell-mode-map)
 (bind-key "C-." 'haskell-move-nested-right haskell-mode-map)
-(bind-key "C-x a r" 'aling-regexp)
+(bind-key "C-x a r" 'align-regexp)
 
