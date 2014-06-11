@@ -32,6 +32,13 @@
 
 (req-package rainbow-delimiters)
 
+(req-package json-mode)
+(req-package json-reformat)
+
+(setq whitespace-action '(auto-cleanup))
+
+(bind-key "C-c =w" 'whitespace-mode)
+
 (setq next-line-add-newlines t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
