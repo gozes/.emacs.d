@@ -1,6 +1,7 @@
 (req-package coffee-mode
   :init (progn
-	  (add-hook 'coffee-mode-hook 'gozes-coffee-mode-guide-key-hook)))
+	  (add-hook 'coffee-mode-hook 'gozes-coffee-mode-guide-key-hook)
+	  (setq coffee-tab-width 2)))
 
 
 
