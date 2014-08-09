@@ -10,3 +10,5 @@
   (guide-key/add-local-guide-key-sequence "C-c")
   (guide-key/add-local-guide-key-sequence "M-")
   (guide-key/add-local-highlight-command-regexp "elpy-"))
+
+(elpy-enable)
