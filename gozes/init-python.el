@@ -1,6 +1,7 @@
 (req-package elpy
   :init (progn
 	  (add-hook 'elpy-mode-hook 'gozes-elpy-mode-guide-key-hook)
+	  (add-hook 'elpy-mode-hook '(setq highlight-indentation-mode 0))
 	  (custom-set-variables
 	   '(elpy-rpc-python-command "python3")
 	   '(elpy-rpc-backend "jedi"))))
