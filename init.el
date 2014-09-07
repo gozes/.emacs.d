@@ -20,6 +20,6 @@
 
 (add-hook 'after-init-hook #'(lambda () (load (concat user-emacs-directory "gozes-bootstrap.el"))))
 
-(elpy-enable)
+
 
 
