@@ -43,6 +43,26 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(req-package helm
+  :init
+  (progn
+    (require 'helm-config)
+    (setq helm-idle-delay 0.0
+	  helm-input-idle-delay 0.01
+	  helm-quick-update t
+	  helm-M-x-requires-pattern nil
+	  helm-ff-skip-boring-files t
+	  helm-split-window-in-side-p t
+	  helm-move-to-line-cycle-in-source t
+	  helm-ff-search-library-in-sexp t)
+    (helm-mode))
+  :bind (("C-c h" . helm-mini)
+	 ("M-x" . helm-M-x)))
 
+(req-package helm-descbinds
+  :init
+  (progn
+    (require 'helm-descbinds)
+    (helm-descbinds-mode)))
 
 (provide 'init-exten)
