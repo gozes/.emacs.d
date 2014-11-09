@@ -57,12 +57,17 @@
 	  helm-ff-search-library-in-sexp t)
     (helm-mode))
   :bind (("C-c h" . helm-mini)
-	 ("M-x" . helm-M-x)))
+	 ("M-x" . helm-M-x)
+	 ("C-x C-f" . helm-find-files)))
 
 (req-package helm-descbinds
   :init
   (progn
     (require 'helm-descbinds)
     (helm-descbinds-mode)))
+
+(req-package scheme-mode
+  :mode "\\.scm\\'"
+  :interpreter "petite")
 
 (provide 'init-exten)
