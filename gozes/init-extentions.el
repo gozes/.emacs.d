@@ -12,7 +12,7 @@
 	  (global-company-mode)))
 
 (req-package magit
-  :bind ("C-c C-g" . magit-status))
+  :bind ("C-c g s" . magit-status))
 
 
 (req-package rainbow-delimiters)
