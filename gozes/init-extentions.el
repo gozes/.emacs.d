@@ -75,5 +75,10 @@
   (progn
     (require 'smartparens-config)))
 
+(req-package smart-mode-line
+  :init
+  (progn
+    (sml/setup)
+    (sml/apply-theme 'automatic)))
 
 (provide 'init-exten)
