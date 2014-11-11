@@ -13,5 +13,10 @@
 
 (global-linum-mode t)
 
+(req-package rich-minority-mode
+  :init
+  (progn
+    (rich-minority-mode 1)))
+
 
 (provide 'init-looks)
