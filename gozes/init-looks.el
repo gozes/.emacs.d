@@ -1,6 +1,8 @@
-(req-package phoenix-dark-pink-theme
-  :init (load-theme 'phoenix-dark-pink t))
+;; (req-package phoenix-dark-pink-theme
+;;   :init (load-theme 'phoenix-dark-pink t))
 
+(req-package cyberpunk-theme
+  :init (load-theme 'cyberpunk t))
 
 (menu-bar-mode -1)
 
@@ -10,9 +12,6 @@
 (tool-bar-mode -1)
 
 (global-linum-mode t)
-
-
-
 
 
 (provide 'init-looks)
