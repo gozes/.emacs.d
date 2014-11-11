@@ -70,4 +70,10 @@
   :mode "\\.scm\\'"
   :interpreter "petite")
 
+(req-package smartparesn
+  :init
+  (progn
+    (require 'smartparens-config)))
+
+
 (provide 'init-exten)
