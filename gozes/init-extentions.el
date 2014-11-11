@@ -54,15 +54,10 @@
   :mode "\\.scm\\'"
   :interpreter "petite")
 
-(req-package smartparesn
+(req-package smartparens
   :init
   (progn
     (require 'smartparens-config)))
 
-(req-package smart-mode-line
-  :init
-  (progn
-    (sml/setup)
-    (sml/apply-theme 'automatic)))
 
 (provide 'init-exten)

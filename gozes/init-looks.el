@@ -13,16 +13,9 @@
 
 (toggle-scroll-bar -1)
 
-
 (tool-bar-mode -1)
 
 (global-linum-mode t)
-
-(req-package rich-minority-mode
-  :init
-  (progn
-    (rich-minority-mode 1)
-    (setq rm-blacklist '(" Helm" " Company"))))
 
 
 (provide 'init-looks)
