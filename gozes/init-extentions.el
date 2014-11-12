@@ -57,7 +57,8 @@
 (req-package smartparens
   :init
   (progn
-    (require 'smartparens-config)))
+    (require 'smartparens-config)
+    (smartparens-global-mode t)))
 
 
 (provide 'init-exten)
