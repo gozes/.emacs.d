@@ -1,7 +1,6 @@
 (req-package cider
   :init
-  (progn
-    (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+  (progn    
     (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
     (setq cider-repl-pop-to-buffer-on-connect nil)
     (setq cider-show-error-buffer nil)
