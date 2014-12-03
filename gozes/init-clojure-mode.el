@@ -9,3 +9,7 @@
     (setq cider-repl-result-prefix ";; => ")
     (add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)
     (add-hook 'cider-mode-hook 'smartparens-strict-mode)))
+
+
+
+(req-package clojure-quick-repls)
