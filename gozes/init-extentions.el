@@ -61,5 +61,19 @@
     (smartparens-global-mode t)
     (show-smartparens-global-mode t)))
 
+(bind-key "C-M-f" 'sp-forward-sexp)
+(bind-key "C-M-b" 'sp-backward-sexp)
+(bind-key "C-M-n" 'sp-next-sexp)
+(bind-key "C-M-p" 'sp-previous-sexp)
+(bind-key "C-M-e" 'sp-up-sexp)
+(bind-key "C-M-u" 'sp-backward-up-sexp)
+(bind-key "C-M-d" 'sp-down-sexp)
+(bind-key "C-M-a" 'sp-backward-down-sexp)
+(bind-key "C->" 'sp-forward-slurp-sexp)
+(bind-key "C-<" 'sp-forward-barf-sexp)
+(bind-key "M->" 'sp-backward-slurp-sexp)
+(bind-key "M-<" 'sp-backward-barf-sexp)
+
+
 
 (provide 'init-exten)
