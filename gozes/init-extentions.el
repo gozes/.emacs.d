@@ -69,8 +69,8 @@
 (bind-key "C-c C-s u" 'sp-backward-up-sexp)
 (bind-key "C-c C-s d" 'sp-down-sexp)
 (bind-key "C-c C-s a" 'sp-backward-down-sexp)
-(bind-key "C-c C-s >" 'sp-forward-slurp-sexp)
-(bind-key "C-c C-s <" 'sp-forward-barf-sexp)
+(bind-key "C-c s s" 'sp-forward-slurp-sexp)
+(bind-key "C-c s b" 'sp-forward-barf-sexp)
 (bind-key "M-S-." 'sp-backward-slurp-sexp)
 (bind-key "M-S-," 'sp-backward-barf-sexp)
 
