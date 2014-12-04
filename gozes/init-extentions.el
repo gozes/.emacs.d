@@ -12,7 +12,7 @@
 	  (global-company-mode)))
 
 (req-package magit
-  :bind ("C-c g s" . magit-status))
+  :bind ("C-c g" . magit-status))
 
 
 (req-package rainbow-delimiters)
@@ -58,21 +58,22 @@
   :init
   (progn
     (require 'smartparens-config)
-    (smartparens-global-mode t)
+    (smartparens-global-strict-mode t)
     (show-smartparens-global-mode t)))
 
-(bind-key "C-c C-s f" 'sp-forward-sexp)
-(bind-key "C-c C-s b" 'sp-backward-sexp)
-(bind-key "C-c C-s n" 'sp-next-sexp)
-(bind-key "C-c C-s p" 'sp-previous-sexp)
-(bind-key "C-c C-s e" 'sp-up-sexp)
-(bind-key "C-c C-s u" 'sp-backward-up-sexp)
-(bind-key "C-c C-s d" 'sp-down-sexp)
-(bind-key "C-c C-s a" 'sp-backward-down-sexp)
-(bind-key "C-c s s" 'sp-forward-slurp-sexp)
-(bind-key "C-c s b" 'sp-forward-barf-sexp)
-(bind-key "M-S-." 'sp-backward-slurp-sexp)
-(bind-key "M-S-," 'sp-backward-barf-sexp)
+(bind-key "C-M-f" 'sp-forward-sexp)
+(bind-key "C-M-b" 'sp-backward-sexp)
+(bind-key "C-M-n" 'sp-next-sexp)
+(bind-key "C-M-p" 'sp-previous-sexp)
+(bind-key "C-M-e" 'sp-up-sexp)
+(bind-key "C-M-u" 'sp-backward-up-sexp)
+(bind-key "C-M-d" 'sp-down-sexp)
+(bind-key "C-M-a" 'sp-backward-down-sexp)
+(bind-key "C-)" 'sp-forward-slurp-sexp)
+(bind-key "C-}" 'sp-forward-barf-sexp)
+(bind-key "C-(" 'sp-backward-slurp-sexp)
+(bind-key "C-{" 'sp-backward-barf-sexp)
+
 
 
 
