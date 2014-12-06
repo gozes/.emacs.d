@@ -73,6 +73,8 @@
 (bind-key "C-}" 'sp-forward-barf-sexp)
 (bind-key "C-(" 'sp-backward-slurp-sexp)
 (bind-key "C-{" 'sp-backward-barf-sexp)
+(bind-key "C-M-k" 'sp-kill-sexp)
+(bind-key "C-M-K" 'sp-backward-kill-sexp)
 
 
 
