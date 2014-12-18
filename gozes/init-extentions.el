@@ -28,7 +28,8 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (req-package helm
-  :init
+  
+  :config
   (progn
     (require 'helm-config)
     (setq helm-idle-delay 0.0
