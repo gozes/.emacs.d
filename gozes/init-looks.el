@@ -17,5 +17,6 @@
 
 (global-linum-mode t)
 
+(visual-line-mode 1)
 
 (provide 'init-looks)
