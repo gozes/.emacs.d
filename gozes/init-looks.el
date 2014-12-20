@@ -7,7 +7,7 @@
 ;; (req-package moe-theme
 ;;   :init (load-theme 'moe-dark t))
 
-(req-package emacs-color-themes
+(req-package sublime-themes
   :init (load-theme 'Brin t))    
 
 (menu-bar-mode -1)
