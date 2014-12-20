@@ -8,7 +8,7 @@
 ;;   :init (load-theme 'moe-dark t))
 
 (req-package sublime-themes
-  :init (load-theme 'Brin t))    
+  :init (load-theme 'brin t))    
 
 (menu-bar-mode -1)
 
