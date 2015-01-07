@@ -77,7 +77,7 @@
 (bind-key "C-M-k" 'sp-kill-sexp)
 (bind-key "C-M-K" 'sp-backward-kill-sexp)
 
-
+(req-package toml-mode)
 
 
 (provide 'init-exten)
