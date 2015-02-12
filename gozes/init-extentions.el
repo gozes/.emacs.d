@@ -79,5 +79,10 @@
 
 (req-package toml-mode)
 
+(add-to-list 'auto-mode-alist '("\\.*rc$" . conf-unix-mode))
 
 (provide 'init-exten)
+
+
+
+
