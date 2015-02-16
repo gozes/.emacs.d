@@ -7,3 +7,10 @@
     (add-to-list 'auto-mode-alist
 		 '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
     (push 'company-robe company-backends)))
+
+(req-package minitest
+  :init
+  (progn
+    (add-hook 'ruby-mode-hook 'minitest-mode)))
+
+
