@@ -81,6 +81,14 @@
 
 (add-to-list 'auto-mode-alist '("\\.*rc$" . conf-unix-mode))
 
+(req-package ergoemacs-mode
+  :init
+  (progn
+    (setq ergoemacs-theme "lvl1")
+    (setq ergoemacs-keyboard-layout "dv")
+    (ergoemacs-theme-option-on '(guru))
+    (ergoemacs-mode 1)))
+
 (provide 'init-exten)
 
 
