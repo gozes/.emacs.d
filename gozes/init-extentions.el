@@ -9,9 +9,11 @@
   :bind ("C-c g" . magit-status))
 
 
-(req-package rainbow-delimiters)
-(req-package json-mode)
-(req-package json-reformat)
+
+(req-package json-mode
+  :defer t)
+(req-package json-reformat
+  :defer t)
 
 (setq whitespace-action '(auto-cleanup))
 

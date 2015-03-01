@@ -1,3 +1,4 @@
 (req-package coffee-mode
-  :init (progn
+  :defer t
+  :config (progn
 	  (setq coffee-tab-width 2)))

@@ -1,5 +1,6 @@
 (req-package cider
-  :init
+  :defer t
+  :config
   (progn    
     (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
     (setq cider-repl-pop-to-buffer-on-connect nil)
@@ -12,4 +13,5 @@
 
 
 
-(req-package clojure-quick-repls)
+(req-package clojure-quick-repls
+  :defer t)

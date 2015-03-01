@@ -1,5 +1,6 @@
 (req-package quack
-  :init (progn
+  :defer
+  :config (progn
 	   (setq quack-default-program "mit-scheme-x86-64")))
 
 
