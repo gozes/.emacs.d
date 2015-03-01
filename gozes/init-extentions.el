@@ -78,6 +78,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.*rc$" . conf-unix-mode))
 
+(req-package yasnippet
+  :defer t)
+
 ;; (req-package ergoemacs-mode
 ;;   :init
 ;;   (progn
