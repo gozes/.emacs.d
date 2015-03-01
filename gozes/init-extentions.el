@@ -1,10 +1,3 @@
-;; (req-package auto-complete
-;;   :init (progn
-;; 	  (require 'auto-complete-config)
-;; 	  (ac-config-default)
-;; 	  (setq ac-auto-show-menu t)
-;; 	  (setq ac-show-menu-immediately-on-auto-complete t)))
-
 (req-package melp)
 
 (req-package company
@@ -12,6 +5,7 @@
 	  (global-company-mode)))
 
 (req-package magit
+  :defer t
   :bind ("C-c g" . magit-status))
 
 
@@ -28,6 +22,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (req-package helm
+  :defer t
   
   :config
   (progn
@@ -46,12 +41,14 @@
 	 ("C-x C-f" . helm-find-files)))
 
 (req-package helm-descbinds
+  :defer t
   :init
   (progn
     (require 'helm-descbinds)
     (helm-descbinds-mode)))
 
 (req-package scheme-mode
+  :defer t
   :mode "\\.scm\\'"
   :interpreter "petite")
 
@@ -81,13 +78,13 @@
 
 (add-to-list 'auto-mode-alist '("\\.*rc$" . conf-unix-mode))
 
-(req-package ergoemacs-mode
-  :init
-  (progn
-    (setq ergoemacs-theme "lvl1")
-    (setq ergoemacs-keyboard-layout "dv")
-    (ergoemacs-theme-option-on '(guru))
-    (ergoemacs-mode 1)))
+;; (req-package ergoemacs-mode
+;;   :init
+;;   (progn
+;;     (setq ergoemacs-theme "lvl1")
+;;     (setq ergoemacs-keyboard-layout "dv")
+;;     (ergoemacs-theme-option-on '(guru))
+;;     (ergoemacs-mode 1)))
 
 (provide 'init-exten)
 
