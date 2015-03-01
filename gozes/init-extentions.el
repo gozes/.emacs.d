@@ -43,8 +43,7 @@
     (helm-mode))
   :bind (("C-c h" . helm-mini)
 	 ("M-x" . helm-M-x)
-	 ("C-x C-f" . helm-find-files)
-	 ("C-c h o" . helm-occur)))
+	 ("C-x C-f" . helm-find-files)))
 
 (req-package helm-descbinds
   :init
