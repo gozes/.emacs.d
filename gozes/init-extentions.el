@@ -5,7 +5,7 @@
 	  (global-company-mode)))
 
 (req-package magit
-  :defer t
+
   :bind ("C-c g" . magit-status))
 
 
@@ -41,6 +41,8 @@
   :bind (("C-c h" . helm-mini)
 	 ("M-x" . helm-M-x)
 	 ("C-x C-f" . helm-find-files)))
+
+(bind-key "C-c o" 'helm-occur)
 
 (req-package helm-descbinds
   :defer t
