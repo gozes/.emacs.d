@@ -37,12 +37,13 @@
 	  helm-split-window-in-side-p t
 	  helm-move-to-line-cycle-in-source t
 	  helm-ff-search-library-in-sexp t)
-    (helm-mode))
+    (helm-mode)
+    (bind-key "C-c o" 'helm-occur))
   :bind (("C-c h" . helm-mini)
 	 ("M-x" . helm-M-x)
 	 ("C-x C-f" . helm-find-files)))
 
-(bind-key "C-c o" 'helm-occur)
+
 
 (req-package helm-descbinds
   :defer t
