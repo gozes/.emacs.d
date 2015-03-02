@@ -1,8 +1,21 @@
-(req-package elpy
-  :init (progn
-	  (elpy-enable)
-	  (add-hook 'elpy-mode-hook '(setq highlight-indentation-mode f))
-	  (setq elpy-rpc-python-command "python3")
-	  (setq elpy-rpc-backend "jedi")))
+(req-package anaconda-mode
+  :defer t
+  :init
+  (progn
+    (add-hook 'python-mode-hook 'anaconda-mode))
+  :config
+  (progn
+    (pyenv-mode)))
+
+(req-package company-anaconda
+  :defer t
+  :init
+  (progn
+    (add-to-list 'company-backends 'company-anaconda)))
+
+(req-package pyenv-mede
+  :defer t)
+
+
 
 (provide 'init-python)

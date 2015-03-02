@@ -7,10 +7,7 @@
 (req-package magit
 
   :bind ("C-c g" . magit-status))
-(req-package magit-gh-pulls
-  :init
-  (progn
-    (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)))
+
 
 
 (req-package json-mode
