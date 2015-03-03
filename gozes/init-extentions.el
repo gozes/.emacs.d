@@ -47,7 +47,7 @@
 
 (req-package helm-descbinds
   :defer t
-  :init
+  :config
   (progn
     (require 'helm-descbinds)
     (helm-descbinds-mode)))
@@ -58,28 +58,29 @@
   :interpreter "petite")
 
 (req-package smartparens
-  :init
+  :config
   (progn
     (require 'smartparens-config)
     (smartparens-global-strict-mode t)
-    (show-smartparens-global-mode t)))
+    (show-smartparens-global-mode t)
+    (bind-key "C-M-f" 'sp-forward-sexp)
+    (bind-key "C-M-b" 'sp-backward-sexp)
+    (bind-key "C-M-n" 'sp-next-sexp)
+    (bind-key "C-M-p" 'sp-previous-sexp)
+    (bind-key "C-M-e" 'sp-up-sexp)
+    (bind-key "C-M-u" 'sp-backward-up-sexp)
+    (bind-key "C-M-d" 'sp-down-sexp)
+    (bind-key "C-M-a" 'sp-backward-down-sexp)
+    (bind-key "C-)" 'sp-forward-slurp-sexp)
+    (bind-key "C-}" 'sp-forward-barf-sexp)
+    (bind-key "C-(" 'sp-backward-slurp-sexp)
+    (bind-key "C-{" 'sp-backward-barf-sexp)
+    (bind-key "C-M-k" 'sp-kill-sexp)
+    (bind-key "C-M-K" 'sp-backward-kill-sexp)))
 
-(bind-key "C-M-f" 'sp-forward-sexp)
-(bind-key "C-M-b" 'sp-backward-sexp)
-(bind-key "C-M-n" 'sp-next-sexp)
-(bind-key "C-M-p" 'sp-previous-sexp)
-(bind-key "C-M-e" 'sp-up-sexp)
-(bind-key "C-M-u" 'sp-backward-up-sexp)
-(bind-key "C-M-d" 'sp-down-sexp)
-(bind-key "C-M-a" 'sp-backward-down-sexp)
-(bind-key "C-)" 'sp-forward-slurp-sexp)
-(bind-key "C-}" 'sp-forward-barf-sexp)
-(bind-key "C-(" 'sp-backward-slurp-sexp)
-(bind-key "C-{" 'sp-backward-barf-sexp)
-(bind-key "C-M-k" 'sp-kill-sexp)
-(bind-key "C-M-K" 'sp-backward-kill-sexp)
 
-(req-package toml-mode)
+(req-package toml-mode
+  :defer t)
 
 (add-to-list 'auto-mode-alist '("\\.*rc$" . conf-unix-mode))
 
