@@ -3,7 +3,7 @@
   :init
   (progn
     (add-hook 'python-mode-hook 'anaconda-mode)
-    (setq python-shell-interpreter "python2.7"))
+    (setq python-shell-interpreter "python3.4"))
   :config
   (progn
     (setq python-shell-virtualenv-path nil)
@@ -18,7 +18,7 @@
 
 (defun gozes-anaconda-mode-python3 ()
   (interactive)
-  (setq python-shell-interpreter "python3.4")
+  (setq python-shell-interpreter "python2.7")
   (anaconda-mode-start))
 
 
