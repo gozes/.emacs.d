@@ -47,7 +47,7 @@
 
 (req-package helm-descbinds
   :defer t
-  :config
+  :init
   (progn
     (require 'helm-descbinds)
     (helm-descbinds-mode)))
