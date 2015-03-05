@@ -7,7 +7,9 @@
   :config
   (progn
     (setq python-shell-virtualenv-path nil)
-    (bind-key "C-c C-c r" 'gozes-anaconda-mode-python3 anaconda-mode)))
+    (bind-key "C-c C-c r" 'gozes-anaconda-mode-python3 anaconda-mode)
+    (bind-key "C-c C-c g" 'anaconda-mode-goto-definitions anaconda-mode)
+    (bind-key "C-c C-c p" 'anaconda-nav-pop-marker anaconda-mode)))
 
 (req-package company-anaconda
   :defer t
