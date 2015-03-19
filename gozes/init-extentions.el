@@ -1,4 +1,3 @@
-(req-package melp)
 
 (req-package company
   :init (progn
