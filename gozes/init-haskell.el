@@ -4,7 +4,7 @@
   (progn
     (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
     (add-to-list 'company-backends 'company-ghc)
-    ))
+    (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)))
 
 ;; (req-package shm
 ;;   :defer t)
