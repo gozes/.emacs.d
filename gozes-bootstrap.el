@@ -15,6 +15,9 @@
 
 (gozes-bootstrap-config)
 
+(add-to-list 'load-path (concat user-emacs-directory "lisp"))
+
+
 (use-package load-dir
   :ensure load-dir
   :init (load-dir-one (concat user-emacs-directory "gozes")))
