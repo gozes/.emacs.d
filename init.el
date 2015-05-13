@@ -1,6 +1,9 @@
 
 (require 'package)
 
+
+(add-to-list 'load-path (concat user-emacs-directory "lisp"))
+
 (dolist (repo '(("melpa" . "http://melpa.milkbox.net/packages/")
                 ("marmalade" . "http://marmalade-repo.org/packages/")
                 ("elpa" . "http://tromey.com/elpa/")
