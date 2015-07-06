@@ -5,7 +5,8 @@
 ;;   :init (load-theme 'cyberpunk t))
 
 (req-package moe-theme
-  :init (load-theme 'moe-dark t))
+  :init (progn
+	  (load-theme 'moe-dark t)))
 
 ;; (req-package sublime-themes
 ;;   :init (load-theme 'brin t))    
