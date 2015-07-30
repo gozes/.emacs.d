@@ -86,6 +86,9 @@
 (req-package yasnippet
   :defer t)
 
+(req-package markdown-mode
+  :defer t)
+
 ;; (req-package ergoemacs-mode
 ;;   :init
 ;;   (progn
