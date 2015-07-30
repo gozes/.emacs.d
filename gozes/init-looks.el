@@ -4,12 +4,15 @@
 ;; (req-package cyberpunk-theme
 ;;   :init (load-theme 'cyberpunk t))
 
-(req-package moe-theme
-  :init (progn
-	  (load-theme 'moe-dark t)))
+;; (req-package moe-theme
+;;   :init (progn
+;; 	  (load-theme 'moe-dark t)))
 
 ;; (req-package sublime-themes
 ;;   :init (load-theme 'brin t))    
+
+(req-package afternoon-theme
+  :init (load-theme 'afternoon t))
 
 (menu-bar-mode -1)
 
