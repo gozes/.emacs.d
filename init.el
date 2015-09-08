@@ -4,7 +4,7 @@
 
 
 
-(dolist (repo '(("melpa" . "http://melpa.milkbox.net/packages/")
+(dolist (repo '(("melpa" . "https://melpa.org/packages/")
                 ("marmalade" . "http://marmalade-repo.org/packages/")
                 ("elpa" . "http://tromey.com/elpa/")
 		("org" . "http://orgmode.org/elpa/")))
