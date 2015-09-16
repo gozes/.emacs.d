@@ -1,6 +1,6 @@
 
 (req-package company
-  :init (progn
+  :config (progn
 	  (global-company-mode)))
 
 (req-package magit
