@@ -15,6 +15,8 @@
 
 (gozes-bootstrap-config)
 
+(setq req-package-log-level 'trace)
+
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 
 
