@@ -11,6 +11,9 @@
 ;; (req-package sublime-themes
 ;;   :init (load-theme 'brin t))    
 
+(req-package spacemacs-theme
+  :init (load-theme 'spacemacs-dark t))
+
 (req-package afternoon-theme
   :init (load-theme 'afternoon t))
 
