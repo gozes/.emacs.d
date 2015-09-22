@@ -20,7 +20,10 @@
 ;;   :init
 ;;   (progn
 ;;     (add-to-list 'company-backends 'company-anaconda)))
-
+(req-package company-jedi
+  :defer t
+  :config (progn
+	    (add-to-list 'company-backends 'company-jedi)))
 
 
 
