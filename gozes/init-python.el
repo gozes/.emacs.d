@@ -20,12 +20,34 @@
 ;;   :init
 ;;   (progn
 ;;     (add-to-list 'company-backends 'company-anaconda)))
-(req-package company-jedi
+(use-package company-jedi
+  :ensure t
   :defer t
   :config (progn
 	    (add-to-list 'company-backends 'company-jedi)))
 
+(setq gozes-prefered-sysetm-python (executable-find "python3"))
+(setq gozes-prefered-system-python-set t)
 
+(defun gozes-switch-prefered-system-python ()
+  (interactive)
+  (if gozes-prefered-system-python-set
+      (setq py-python-command gozes-prefered-system-python))
+  (progn
+    (setq gozes-prefered-sysetm-python (executable-find "python"))
+    (setq gozes-prefered-sysetm-python-set nil)))
+(use-package python-mode
+  :init
+  (use-package jedi-core
+	 :ensure t
+	 :defer t
+	 :bind
+	 (:map jedi-mode-map
+		     ("C-c s p" . gozes-switch-prefered-system-python))
+	 :config
+	 (progn
+	   (add-hook 'python-mode-hook 'jedi:setup)
+	   (setq py-python-command gozes-prefered-sysetm-python))))
 
 
 (provide 'init-python)
