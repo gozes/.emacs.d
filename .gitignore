@@ -24,3 +24,8 @@ gozes/creds.el
 url/*
 
 session.*
+/.python-environments/default/bin/activate
+/*.csh
+*.pyc
+/*.fish
+*.py

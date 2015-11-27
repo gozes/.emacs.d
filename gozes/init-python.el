@@ -34,20 +34,17 @@
   (if gozes-prefered-system-python-set
       (setq py-python-command gozes-prefered-system-python))
   (progn
-    (setq gozes-prefered-sysetm-python (executable-find "python"))
+    (setq gozes-prefered-sysetm-python (executable-find "python2"))
     (setq gozes-prefered-sysetm-python-set nil)))
-(use-package python-mode
-  :init
-  (use-package jedi-core
-	 :ensure t
-	 :defer t
-	 :bind
-	 (:map jedi-mode-map
-		     ("C-c s p" . gozes-switch-prefered-system-python))
-	 :config
-	 (progn
-	   (add-hook 'python-mode-hook 'jedi:setup)
-	   (setq py-python-command gozes-prefered-sysetm-python))))
+
+
+(use-package jedi-core
+  :ensure t
+  :defer t
+  :config
+  (progn
+    (add-hook 'python-mode-hook 'jedi:setup)
+    (setq py-python-command gozes-prefered-sysetm-python)))
 
 
 (provide 'init-python)
