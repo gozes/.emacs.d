@@ -55,6 +55,10 @@
   (use-package elpy
     :ensure t
     :diminish t
-    :config(elpy-enable)))
+    :config
+    (progn
+      (elpy-enable)
+      (setq elpy-rpc-python-command gozes-prefered-sysetm-python)
+      )))
 
 (provide 'init-python)
