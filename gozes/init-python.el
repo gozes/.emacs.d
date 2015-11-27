@@ -21,6 +21,7 @@
 ;;   (progn
 ;;     (add-to-list 'company-backends 'company-anaconda)))
 (use-package company-jedi
+  :disabled t
   :ensure t
   :defer t
   :config (progn
@@ -39,6 +40,7 @@
 
 
 (use-package jedi-core
+  :disabled t
   :ensure t
   :defer t
   :config
@@ -47,5 +49,12 @@
     (setq py-python-command gozes-prefered-sysetm-python)
     (setq jedi:complete-on-dot t)))
 
+
+(use-package python-mode
+  :init
+  (use-package elpy
+    :ensure t
+    :diminish t
+    :config(elpy-enable)))
 
 (provide 'init-python)
