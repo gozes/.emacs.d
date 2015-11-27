@@ -1,20 +1,31 @@
-;; (req-package phoenix-dark-pink-theme
-;;   :init (load-theme 'phoenix-dark-pink t))
+(use-package phoenix-dark-pink-theme
+  :disabled t
+  :ensure t
+  :init (load-theme 'phoenix-dark-pink t))
 
-;; (req-package cyberpunk-theme
-;;   :init (load-theme 'cyberpunk t))
+(use-package cyberpunk-theme
+  :ensure t
+  :init (load-theme 'cyberpunk t))
 
-;; (req-package moe-theme
-;;   :init (progn
-;; 	  (load-theme 'moe-dark t)))
+(use-package moe-theme
+  :disabled t
+  :ensure t
+  :init (progn
+	  (load-theme 'moe-dark t)))
 
-;; (req-package sublime-themes
-;;   :init (load-theme 'brin t))    
+(use-package sublime-themes
+  :disabled t
+  :ensure t
+  :init (load-theme 'brin t))    
 
-(req-package spacemacs-theme
+(use-package spacemacs-theme
+  :disabled t
+  :ensure t
   :init (load-theme 'spacemacs-dark t))
 
-(req-package afternoon-theme
+(use-package afternoon-theme
+  :disabled t
+  :ensure t
   :init (load-theme 'afternoon t))
 
 (menu-bar-mode -1)
