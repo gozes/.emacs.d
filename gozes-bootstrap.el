@@ -11,7 +11,8 @@
   (gozes-init-archive-if-empty)
   (if (null (require 'req-package "req-package" t))
       (progn (package-install 'req-package)
-	     (require 'req-package))))
+	     (require 'req-package)
+	     )))
 
 (gozes-bootstrap-config)
 

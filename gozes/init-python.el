@@ -20,12 +20,12 @@
 ;;   :init
 ;;   (progn
 ;;     (add-to-list 'company-backends 'company-anaconda)))
-(use-package company-jedi
-  :disabled t
-  :ensure t
-  :defer t
-  :config (progn
-	    (add-to-list 'company-backends 'company-jedi)))
+;; (use-package company-jedi
+;;   :disabled t
+;;   :ensure t
+;;   :defer t
+;;   :config (progn
+;; 	    (add-to-list 'company-backends 'company-jedi)))
 
 (setq gozes-prefered-sysetm-python (executable-find "python3"))
 (setq gozes-prefered-system-python-set t)
@@ -39,26 +39,26 @@
     (setq gozes-prefered-sysetm-python-set nil)))
 
 
-(use-package jedi-core
-  :disabled t
-  :ensure t
-  :defer t
-  :config
-  (progn
-    (add-hook 'python-mode-hook 'jedi:setup)
-    (setq py-python-command gozes-prefered-sysetm-python)
-    (setq jedi:complete-on-dot t)))
+;; (use-package jedi-core
+;;   :disabled t
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (progn
+;;     (add-hook 'python-mode-hook 'jedi:setup)
+;;     (setq py-python-command gozes-prefered-sysetm-python)
+;;     (setq jedi:complete-on-dot t)))
 
 
-(use-package python-mode
+(req-package python-mode
   :init
-  (use-package elpy
-    :ensure t
-    :diminish t
+  (req-package elpy
+    
+    
     :config
     (progn
       (elpy-enable)
-      (setq elpy-rpc-python-command gozes-prefered-sysetm-python)
+      (setq elpy-rpc-python-command gozes-prefered-system-python)
       )))
 
 (provide 'init-python)

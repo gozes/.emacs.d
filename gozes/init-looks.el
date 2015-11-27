@@ -1,31 +1,25 @@
-(use-package phoenix-dark-pink-theme
+(req-package phoenix-dark-pink-theme
   :disabled t
-  :ensure t
   :init (load-theme 'phoenix-dark-pink t))
 
-(use-package cyberpunk-theme
-  :ensure t
+(req-package cyberpunk-theme
   :init (load-theme 'cyberpunk t))
 
-(use-package moe-theme
+(req-package moe-theme
   :disabled t
-  :ensure t
   :init (progn
 	  (load-theme 'moe-dark t)))
 
-(use-package sublime-themes
+(req-package sublime-themes
   :disabled t
-  :ensure t
   :init (load-theme 'brin t))    
 
-(use-package spacemacs-theme
+(req-package spacemacs-theme
   :disabled t
-  :ensure t
   :init (load-theme 'spacemacs-dark t))
 
-(use-package afternoon-theme
+(req-package afternoon-theme
   :disabled t
-  :ensure t
   :init (load-theme 'afternoon t))
 
 (menu-bar-mode -1)

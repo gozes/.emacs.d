@@ -1,22 +1,21 @@
 
-(use-package company
-  :diminish t
-  :ensure t
+(req-package company
+  
   :config (progn
 	  (global-company-mode)))
 
-(use-package magit
-  :ensure t
+(req-package magit
+  
 
   :bind ("C-c g" . magit-status))
 
 
 
-(use-package json-mode
-  :ensure t
+(req-package json-mode
+  
   :defer t)
-(use-package json-reformat
-  :ensure t
+(req-package json-reformat
+  
   :defer t)
 
 (setq whitespace-action '(auto-cleanup))
@@ -27,9 +26,9 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(use-package helm
-  :diminish t 
-  :ensure t
+(req-package helm
+   
+  
   :defer t
   
   :config
@@ -51,23 +50,23 @@
 
 
 
-(use-package helm-descbinds
-  :ensure t
+(req-package helm-descbinds
+  
   :defer t
   :init
   (progn
     (require 'helm-descbinds)
     (helm-descbinds-mode)))
 
-(use-package scheme-mode
-  :ensure t
+(req-package scheme-mode
+  
   :defer t
   :mode "\\.scm\\'"
   :interpreter "petite")
 
-(use-package smartparens
-  :diminish t
-  :ensure t
+(req-package smartparens
+  
+  
   :config
   (progn
     (require 'smartparens-config)
@@ -89,19 +88,19 @@
     (bind-key "C-M-K" 'sp-backward-kill-sexp)))
 
 
-(use-package toml-mode
-  :ensure t
+(req-package toml-mode
+  
   :defer t)
 
 (add-to-list 'auto-mode-alist '("\\.*rc$" . conf-unix-mode))
 
-(use-package yasnippet
-  :diminish t
-  :ensure t
+(req-package yasnippet
+  
+  
   :defer t)
 
-(use-package markdown-mode
-  :ensure t
+(req-package markdown-mode
+  
   :defer t)
 
 ;; (req-package ergoemacs-mode
