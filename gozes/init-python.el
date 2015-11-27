@@ -44,7 +44,8 @@
   :config
   (progn
     (add-hook 'python-mode-hook 'jedi:setup)
-    (setq py-python-command gozes-prefered-sysetm-python)))
+    (setq py-python-command gozes-prefered-sysetm-python)
+    (setq jedi:complete-on-dot t)))
 
 
 (provide 'init-python)
