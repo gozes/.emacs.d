@@ -27,7 +27,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (req-package helm
-   
+  :disabled t
   
   :defer t
   
@@ -51,7 +51,7 @@
 
 
 (req-package helm-descbinds
-  
+  :disabled t
   :defer t
   :init
   (progn
@@ -63,6 +63,31 @@
   :defer t
   :mode "\\.scm\\'"
   :interpreter "petite")
+
+(req-package ido-mode
+  :init
+  (progn
+    (setq ido-enable-flex-matching t)
+    (setq ido-everywhere t)
+    (ido-mode 1)))
+
+(req-package flex-ido
+      :init
+      (progn
+	(setq ido-enable-flex-matching t)
+	(setq ido-use-faces nil)))
+
+(req-package ido-hacks)
+
+(req-package ido-vertical-mode
+      :init
+      (progn
+	(ido-vertical-mode 1)))
+
+(req-package ido-describe-bindings
+  :bind (("C-h b" . ido-describe-bindings)))
+
+(bind-key "C-h M-b" 'describe-personal-keybindings)
 
 (req-package smartparens
   
