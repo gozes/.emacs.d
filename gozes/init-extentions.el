@@ -27,7 +27,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (req-package helm
-  :disabled t
+  
   
   :defer t
   
@@ -46,12 +46,13 @@
     (bind-key "C-c o" 'helm-occur))
   :bind (("C-c h" . helm-mini)
 	 ("M-x" . helm-M-x)
-	 ("C-x C-f" . helm-find-files)))
+	 ("C-x C-f" . helm-find-files)
+	 ("<tab>" . helm-execute-persistent-action)))
 
 
 
 (req-package helm-descbinds
-  :disabled t
+  
   :defer t
   :init
   (progn
@@ -65,6 +66,7 @@
   :interpreter "petite")
 
 (req-package ido-mode
+  :disabled t
   :init
   (progn
     (setq ido-enable-flex-matching t)
@@ -72,19 +74,24 @@
     (ido-mode 1)))
 
 (req-package flex-ido
+  
+  :disabled t
       :init
       (progn
 	(setq ido-enable-flex-matching t)
 	(setq ido-use-faces nil)))
 
-(req-package ido-hacks)
+(req-package ido-hacks
+  :disabled t)
 
 (req-package ido-vertical-mode
+  :disabled t
       :init
       (progn
 	(ido-vertical-mode 1)))
 
 (req-package ido-describe-bindings
+  :disabled t
   :bind (("C-h b" . ido-describe-bindings)))
 
 (bind-key "C-h M-b" 'describe-personal-keybindings)
