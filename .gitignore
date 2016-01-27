@@ -30,3 +30,7 @@ session.*
 /*.fish
 *.py
 /ido.last
+/backups/!home!gozes!Documents!.emacs.d!elpa!alchemist-20160124.2307!alchemist-autoloads.el~
+/config.el
+/backups/!home!gozes!Documents!.emacs.d!elpa!async-20160108.1249!async-autoloads.el~
+backups/*

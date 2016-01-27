@@ -1,0 +1,297 @@
+* Customs and Bookmarks
+** Customs
+   Set up the customize file to its own separate file, instead of saving customize settings in init.el
+
+   #+BEGIN_SRC emacs-lisp
+     (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+     (load custom-file)
+
+   #+END_SRC
+** Bookmarks 
+   #+BEGIN_SRC emacs-lisp
+     (setq bookmark-default-file (expand-file-name "bookmarks.el" user-emacs-directory))
+     (load bookmark-default-file)
+   #+END_SRC
+* Defaults
+#+BEGIN_SRC emacs-lisp
+  (global-auto-revert-mode)
+  (setq next-line-add-newlines t)
+  (fset 'yes-or-no-p 'y-or-n-p)
+  (global-linum-mode t)
+  (visual-line-mode t)
+  (diminish 'visual-line-mode)
+
+
+  (put 'downcase-region 'disabled nil)
+  (put 'upcase-region 'disabled nil)
+  (put 'narrow-to-region 'disabled nil)
+  (put 'dired-find-alternate-file 'disabled nil)
+
+
+  ;; Keep all backup and auto-save files in one directory
+  (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+  (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
+
+
+  ;; Don't count two spaces after a period as the end of a sentence.
+  ;; Just one space is needed.
+  (setq sentence-end-double-space nil)
+
+  ;; Don't beep at me
+  (setq visible-bell t)
+#+END_SRC
+
+* Themes
+** Cyberpunk
+#+BEGIN_SRC emacs-lisp
+  (use-package cyberpunk-theme
+    :ensure t
+    :init (load-theme 'cyberpunk t))
+
+
+#+END_SRC
+** Phinix Dark Pink
+#+BEGIN_SRC emacs-lisp
+  (use-package phoenix-dark-pink-theme
+    :ensure t
+    :disabled t
+    :init (load-theme 'phoenix-dark-pink t))
+
+
+#+END_SRC
+** Moe
+#+BEGIN_SRC emacs-lisp
+  (use-package moe-theme
+    :ensure t
+    :disabled t
+    :init (progn
+            (load-theme 'moe-dark t)))
+
+
+#+END_SRC
+** Sublime
+#+BEGIN_SRC emacs-lisp
+  (use-package sublime-themes
+    :ensure t
+    :disabled t
+    :init (load-theme 'brin t))    
+
+
+#+END_SRC
+** Spacemacs
+#+BEGIN_SRC emacs-lisp
+  (use-package spacemacs-theme
+    :ensure t
+    :disabled t
+    :init (load-theme 'spacemacs-dark t))
+
+
+#+END_SRC
+** Afternoon
+#+BEGIN_SRC emacs-lisp
+  (use-package afternoon-theme
+    :ensure t
+    :disabled t
+    :init (load-theme 'afternoon t))
+
+
+#+END_SRC
+* Programming
+** Elisp
+#+BEGIN_SRC emacs-lisp
+  (use-package emacs-lisp-mode
+    :defer t
+    :config (progn
+            (add-hook 'emacs-lisp-mode-hook 'company-mode)
+            (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)))
+
+#+END_SRC
+** Elixir
+
+#+BEGIN_SRC emacs-lisp
+  (use-package alchemist
+    :ensure t
+    :defer t)
+
+#+END_SRC
+** Python
+You will need to install jedi with pip for this to work
+
+#+BEGIN_SRC emacs-lisp
+  (setq gozes-prefered-sysetm-python (executable-find "python3"))
+  (setq gozes-prefered-system-python-set t)
+
+  (defun gozes-switch-prefered-system-python ()
+    (interactive)
+    (if gozes-prefered-system-python-set
+        (setq py-python-command gozes-prefered-system-python))
+    (progn
+      (setq gozes-prefered-sysetm-python (executable-find "python2"))
+      (setq gozes-prefered-sysetm-python-set nil)))
+
+
+
+  (use-package python-mode
+    :ensure t
+    :defer t
+    :init
+    (use-package elpy
+      :ensure t
+      :defer t  
+    
+      :config
+      (progn
+        (elpy-enable)
+        (setq elpy-rpc-python-command gozes-prefered-system-python)
+        )))
+
+#+END_SRC
+** Ruby
+#+BEGIN_SRC emacs-lisp
+  (use-package ruby-mode
+    :defer t
+    :init
+    (use-package robe
+    :ensure t
+    :defer t
+    :config
+    (progn
+      (add-hook 'ruby-mode-hook 'robe-mode)
+      (add-to-list 'auto-mode-alist
+                   '("\\.\\(?:gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
+      (add-to-list 'auto-mode-alist
+                   '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
+      (push 'company-robe company-backends))))
+
+#+END_SRC
+** Haskell
+#+BEGIN_SRC emacs-lisp
+  (use-package haskell-mode
+    :ensure t
+    :disabled t
+    :defer t
+    :config
+    (progn
+      (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+      (add-to-list 'company-backends 'company-ghc)
+      (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+      (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+      (custom-set-variables
+       '(haskell-process-suggest-remove-import-lines t)
+       '(haskell-process-auto-import-loaded-modules t)
+       '(haskell-process-log t))))
+
+
+  (use-package company-ghc
+    :ensure t
+    :disabled t
+    :defer t)
+
+  (use-package ghc
+    :ensure t
+    :disabled t
+    :defer t)
+
+#+END_SRC
+* Packages
+** Company
+#+BEGIN_SRC emacs-lisp
+  (use-package company
+    :ensure t
+    :diminish t  
+    :config (progn
+            (global-company-mode)))
+
+
+#+END_SRC
+** Magit
+
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :ensure t
+    :defer t
+    :bind ("C-c g" . magit-status))
+
+
+#+END_SRC
+** Helm
+#+BEGIN_SRC emacs-lisp
+  (use-package helm
+    :ensure t
+    :diminish t  
+    :defer t
+    :init
+    (use-package helm-descbinds
+    :ensure t
+    :defer t
+    :init
+    (progn
+      (require 'helm-descbinds)
+      (helm-descbinds-mode)))
+
+
+    :config
+    (progn
+      (require 'helm-config)
+      (setq helm-idle-delay 0.0
+            helm-input-idle-delay 0.01
+            helm-quick-update t
+            helm-M-x-requires-pattern nil
+            helm-ff-skip-boring-files t
+            helm-split-window-in-side-p t
+            helm-move-to-line-cycle-in-source t
+            helm-ff-search-library-in-sexp t)
+      (helm-mode)
+      (bind-key "C-c o" 'helm-occur)
+      (bind-key "<tab>" 'helm-execute-persistent-action helm-map)
+      (bind-key "C-j" 'helm-select-action helm-map))
+    :bind (("C-c o" . helm-occur)
+           ("C-c h" . helm-mini)
+           ("M-x" . helm-M-x)
+           ("C-x C-f" . helm-find-files)))
+       
+
+#+END_SRC
+
+** Yasnippet
+#+BEGIN_SRC emacs-lisp
+  (use-package yasnippet
+  
+    :disabled t
+    :defer t)
+
+#+END_SRC
+** Smartparens
+#+BEGIN_SRC emacs-lisp
+  (use-package smartparens
+    :ensure t
+    :diminish t
+    :config
+    (progn
+      (require 'smartparens-config)
+      (smartparens-global-strict-mode t)
+      (show-smartparens-global-mode t)
+      (bind-key "C-M-f" 'sp-forward-sexp)
+      (bind-key "C-M-b" 'sp-backward-sexp)
+      (bind-key "C-M-n" 'sp-next-sexp)
+      (bind-key "C-M-p" 'sp-previous-sexp)
+      (bind-key "C-M-e" 'sp-up-sexp)
+      (bind-key "C-M-u" 'sp-backward-up-sexp)
+      (bind-key "C-M-d" 'sp-down-sexp)
+      (bind-key "C-M-a" 'sp-backward-down-sexp)
+      (bind-key "C-)" 'sp-forward-slurp-sexp)
+      (bind-key "C-}" 'sp-forward-barf-sexp)
+      (bind-key "C-(" 'sp-backward-slurp-sexp)
+      (bind-key "C-{" 'sp-backward-barf-sexp)
+      (bind-key "C-M-k" 'sp-kill-sexp)
+      (bind-key "C-M-K" 'sp-backward-kill-sexp)))
+
+
+#+END_SRC
+** Markdown
+#+BEGIN_SRC emacs-lisp
+  (use-package markdown-mode
+    :ensure t
+    :defer t)
+
+#+END_SRC
