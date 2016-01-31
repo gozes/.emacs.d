@@ -303,3 +303,15 @@ You will need to install jedi with pip for this to work
     :defer t)
 
 #+END_SRC
+** Diminish
+#+BEGIN_SRC emacs-lisp
+  (use-package diminish
+    :ensure t
+    :config
+    (progn
+      (diminish 'company)
+      (diminish 'helm)))
+
+#+END_SRC
+
+
