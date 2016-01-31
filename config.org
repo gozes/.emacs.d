@@ -96,6 +96,14 @@
 
 
 #+END_SRC
+** Subatomic
+#+BEGIN_SRC emacs-lisp
+  (use-package subatomic-theme
+    :ensure t
+    :disabled t
+    :init (load-theme 'subatomic t))
+
+#+END_SRC
 * Programming
 ** Elisp
 #+BEGIN_SRC emacs-lisp
