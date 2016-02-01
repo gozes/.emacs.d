@@ -7,12 +7,6 @@
      (load custom-file)
 
    #+END_SRC
-** Bookmarks 
-   #+BEGIN_SRC emacs-lisp
-     ;; (setq bookmark-default-file (expand-file-name "bookmarks.el" user-emacs-directory))
-     ;; (load bookmark-default-file)
-
-   #+END_SRC
 * Defaults
 #+BEGIN_SRC emacs-lisp
   (global-auto-revert-mode)
