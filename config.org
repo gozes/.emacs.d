@@ -338,3 +338,22 @@ You will need to install jedi with pip for this to work
       (bind-key "C-h M-m" 'discover-my-mode)))
 
 #+END_SRC   
+** hi-lock-mode
+added this so that comments with TODO will get highltied 
+
+taken strated from John Li (jetpack) reply to my question on [[https://plus.google.com/103950408600047374795/posts/DsgTWbPJ9Pu][G+]]
+
+#+BEGIN_SRC emacs-lisp
+  (use-package hi-lock-mode
+    :config
+    (progn
+      (defface fixme-face '((t (:foreground "red" :weight bold :underline t))) "fixme face")  ; so on, for other faces
+      (defun setup-hi-lock-phrases ()
+        (hi-lock-face-phrase-buffer "FIXME" 'fixme-face)
+        (hi-lock-face-phrase-buffer "TODO" 'todo-face)
+        (hi-lock-face-phrase-buffer "NOTE" 'note-face)
+        (hi-lock-face-phrase-buffer "deprecated" 'deprecated-face))
+      (add-hook 'hi-lock-mode-hook 'setup-hi-lock-phrases)
+      (global-hi-lock-mode 1)﻿))
+
+#+END_SRC
