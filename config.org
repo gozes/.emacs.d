@@ -326,16 +326,15 @@ You will need to install jedi with pip for this to work
 
 #+END_SRC
 
-
 ** Discover My Major
 #+BEGIN_SRC emacs-lisp
   (use-package discover-my-major
     :ensure t
     :defer t
-    :config
+    :init
     (progn
-      (bind-key "C-h C-m" 'discover-my-major)
-      (bind-key "C-h M-m" 'discover-my-mode)))
+      (bind-key* "C-h C-m" 'discover-my-major)
+      (bind-key* "C-h M-m" 'discover-my-mode)))
 
 #+END_SRC   
 ** hi-lock-mode
