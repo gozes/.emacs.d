@@ -196,6 +196,24 @@ You will need to install jedi with pip for this to work
     :defer t)
 
 #+END_SRC
+** Go
+#+BEGIN_SRC emacs-lisp
+  (use-package go-mode
+    :ensure t
+    :defer t
+    :init
+    (progn
+
+      (use-package company-go :ensure t :defer t)
+      (use-package go-eldoc
+        :ensure t
+        :defer t
+        :config
+        (progn
+          (add-hook 'go-mode-hook 'go-eldoc-setup)))
+      (use-package goflymake :ensure t :defer t)))
+
+#+END_SRC
 * Packages
 ** Company
 #+BEGIN_SRC emacs-lisp
