@@ -210,8 +210,7 @@ You will need to install jedi with pip for this to work
         :defer t
         :config
         (progn
-          (add-hook 'go-mode-hook 'go-eldoc-setup)))
-      (use-package goflymake :ensure t :defer t)))
+          (add-hook 'go-mode-hook 'go-eldoc-setup)))))
 
 #+END_SRC
 * Packages
