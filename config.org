@@ -198,19 +198,21 @@ You will need to install jedi with pip for this to work
 #+END_SRC
 ** Go
 #+BEGIN_SRC emacs-lisp
-  (use-package go-mode
-    :ensure t
-    :defer t
-    :init
-    (progn
+  (use-package go-mode :ensure t :defer t)
 
-      (use-package company-go :ensure t :defer t)
-      (use-package go-eldoc
+  (use-package company-go :ensure t :defer t
+    :config
+    (progn
+      (setq company-tooltip-limit 20)
+      (setq company-idle-delay .3)
+      (push 'company-go company-backends)))
+
+  (use-package go-eldoc
         :ensure t
         :defer t
         :config
         (progn
-          (add-hook 'go-mode-hook 'go-eldoc-setup)))))
+          (add-hook 'go-mode-hook 'go-eldoc-setup)))
 
 #+END_SRC
 * Packages
@@ -344,6 +346,7 @@ taken strated from John Li (jetpack) reply to my question on [[https://plus.goog
 
 #+BEGIN_SRC emacs-lisp
   (use-package hi-lock-mode
+    :disabled t
     :config
     (progn
       (defface fixme-face '((t (:foreground "red" :weight bold :underline t))) "fixme face")  ; so on, for other faces
@@ -355,4 +358,10 @@ taken strated from John Li (jetpack) reply to my question on [[https://plus.goog
       (add-hook 'hi-lock-mode-hook 'setup-hi-lock-phrases)
       (global-hi-lock-mode 1)﻿))
 
+#+END_SRC
+** Restart Emacs
+#+BEGIN_SRC emacs-lisp
+  (use-package restart-emacs
+    :ensure t
+    :bind ("C-c C-r" . restart-emacs))
 #+END_SRC
