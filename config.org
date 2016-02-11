@@ -224,7 +224,6 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
     (progn
       (add-hook 'go-mode-hook '(lambda () (push 'company-go company-backends)))
       (add-hook 'go-mode-hook 'go-eldoc-setup)
-      (setq gofmt-command "goimports")
       (add-hook 'before-save-hook 'gofmt-before-save)))
 
 
