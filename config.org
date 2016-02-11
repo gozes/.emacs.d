@@ -224,7 +224,8 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
     (progn
       (add-hook 'go-mode-hook '(lambda () (push 'company-go company-backends)))
       (add-hook 'go-mode-hook 'go-eldoc-setup)
-      (add-hook 'before-save-hook 'gofmt-before-save)))
+      (add-hook 'before-save-hook 'gofmt-before-save)
+      (add-hook 'go-mode-hook 'flycheck-mode)))
 
 
 
@@ -390,4 +391,10 @@ taken strated from John Li (jetpack) reply to my question on [[https://plus.goog
       (exec-path-from-shell-copy-env "GOPATH")))
 #+END_SRC
 
+
+** FlyCheck
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck :ensure t :defer t)
+
+#+END_SRC
 
