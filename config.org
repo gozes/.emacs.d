@@ -197,24 +197,37 @@ You will need to install jedi with pip for this to work
 
 #+END_SRC
 ** Go
+Because Go is stupid and want you to use it's damm workspacse you have to setup the path this way for it to work
+
+#+BEGIN_SRC sh
+  export GOPATH=$HOME/.go:$HOME/Code/go
+  export PATH=$PATH:$HOME/.go/bin:$HOME/Code/go/bin
+
+#+END_SRC
+
+otherwise you will have a bad time
+
+see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
+
 #+BEGIN_SRC emacs-lisp
   (use-package go-mode :ensure t :defer t
-    :config
+    :init
     (progn
-      (add-hook 'go-mode-hook '(lambda () (push 'company-go company-backends)))))
+      (use-package go-eldoc :ensure t :defer t)
 
-  (use-package company-go :ensure t :defer t
-    :config
-    (progn
-      (setq company-tooltip-limit 20)
-      (setq company-idle-delay .3)))
-
-  (use-package go-eldoc
-        :ensure t
-        :defer t
+      (use-package company-go :ensure t :defer t
         :config
         (progn
-          (add-hook 'go-mode-hook 'go-eldoc-setup)))
+          (setq company-tooltip-limit 20)
+          (setq company-idle-delay .3))))
+    :config
+    (progn
+      (add-hook 'go-mode-hook '(lambda () (push 'company-go company-backends)))
+      (add-hook 'go-mode-hook 'go-eldoc-setup)))
+
+
+
+
 
 #+END_SRC
 * Packages
@@ -222,7 +235,7 @@ You will need to install jedi with pip for this to work
 #+BEGIN_SRC emacs-lisp
   (use-package company
     :ensure t
-    :diminish t  
+    :diminish company-mode  
     :config (progn
             (global-company-mode)))
 
@@ -289,7 +302,7 @@ You will need to install jedi with pip for this to work
 #+BEGIN_SRC emacs-lisp
   (use-package smartparens
     :ensure t
-    :diminish t
+    :diminish smartparens-mode
     :config
     (progn
       (require 'smartparens-config)
