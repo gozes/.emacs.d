@@ -233,6 +233,10 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
 
 #+END_SRC
 * Packages
+** Org
+#+BEGIN_SRC emacs-lisp
+  (setq org-src-window-setup 'current-window)
+#+END_SRC
 ** Company
 #+BEGIN_SRC emacs-lisp
   (use-package company
@@ -301,6 +305,8 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
 
 #+END_SRC
 ** Smartparens
+copyed the keybingdings from [[https://ebzzry.github.io/emacs-pairs.html][this]] very good smartparens tutorial to fix the mess I had with my own keybingdings
+
 #+BEGIN_SRC emacs-lisp
   (use-package smartparens
     :ensure t
@@ -310,21 +316,35 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
       (require 'smartparens-config)
       (smartparens-global-strict-mode t)
       (show-smartparens-global-mode t)
-      (bind-key "C-M-f" 'sp-forward-sexp)
-      (bind-key "C-M-b" 'sp-backward-sexp)
-      (bind-key "C-M-n" 'sp-next-sexp)
-      (bind-key "C-M-p" 'sp-previous-sexp)
-      (bind-key "C-M-e" 'sp-up-sexp)
-      (bind-key "C-M-u" 'sp-backward-up-sexp)
-      (bind-key "C-M-d" 'sp-down-sexp)
-      (bind-key "C-M-a" 'sp-backward-down-sexp)
-      (bind-key "C-)" 'sp-forward-slurp-sexp)
-      (bind-key "C-}" 'sp-forward-barf-sexp)
-      (bind-key "C-(" 'sp-backward-slurp-sexp)
-      (bind-key "C-{" 'sp-backward-barf-sexp)
-      (bind-key "C-M-k" 'sp-kill-sexp)
-      (bind-key "C-M-K" 'sp-backward-kill-sexp)))
-
+      (bind-keys
+       :map smartparens-mode-map
+       ("C-M-a" . sp-beginning-of-sexp)
+       ("C-M-e" . sp-end-of-sexp)
+       ("C-<down>" . sp-down-sexp)
+       ("C-<up>"   . sp-up-sexp)
+       ("M-<down>" . sp-backward-down-sexp)
+       ("M-<up>"   . sp-backward-up-sexp)
+       ("C-M-f" . sp-forward-sexp)
+       ("C-M-b" . sp-backward-sexp)
+       ("C-M-n" . sp-next-sexp)
+       ("C-M-p" . sp-previous-sexp)
+       ("C-S-f" . sp-forward-symbol)
+       ("C-S-b" . sp-backward-symbol)
+       ("C-M-t" . sp-transpose-sexp)
+       ("C-M-k" . sp-kill-sexp)
+       ("C-k"   . sp-kill-hybrid-sexp)
+       ("M-k"   . sp-backward-kill-sexp)
+       ("C-M-w" . sp-copy-sexp)
+       ("C-M-d" . delete-sexp)
+       ("M-<backspace>" . backward-kill-word)
+       ("C-<backspace>" . sp-backward-kill-word)
+       ("M-[" . sp-backward-unwrap-sexp)
+       ("M-]" . sp-unwrap-sexp)
+       ("C-x C-t" . sp-transpose-hybrid-sexp)
+       ("C-S-)" . sp-forward-slurp-sexp)
+       ("C-S-(" . sp-forward-barf-sexp)
+       ("C-S-}" . sp-backward-slurp-sexp)
+       ("C-S-{" . sp-backward-barf-sexp))))
 
 #+END_SRC
 ** Markdown
@@ -390,7 +410,6 @@ taken strated from John Li (jetpack) reply to my question on [[https://plus.goog
       (exec-path-from-shell-initialize)
       (exec-path-from-shell-copy-env "GOPATH")))
 #+END_SRC
-
 
 ** FlyCheck
 #+BEGIN_SRC emacs-lisp
