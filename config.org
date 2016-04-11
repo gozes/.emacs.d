@@ -419,3 +419,9 @@ taken strated from John Li (jetpack) reply to my question on [[https://plus.goog
 
 #+END_SRC
 
+** Fish Mode
+mode to edit fish shell files
+
+#+BEGIN_SRC emacs-lisp
+  (use-package fish-mode :ensure t)
+#+END_SRC
