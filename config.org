@@ -121,17 +121,16 @@
 You will need to install jedi with pip for this to work
 
 #+BEGIN_SRC emacs-lisp
-  (setq gozes-prefered-sysetm-python (executable-find "python3"))
-  (setq gozes-prefered-system-python-set t)
+  ;; (setq gozes-prefered-sysetm-python (executable-find "python3"))
+  ;; (setq gozes-prefered-system-python-set t)
 
-  (defun gozes-switch-prefered-system-python ()
-    (interactive)
-    (if gozes-prefered-system-python-set
-        (setq py-python-command gozes-prefered-system-python))
-    (progn
-      (setq gozes-prefered-sysetm-python (executable-find "python2"))
-      (setq gozes-prefered-sysetm-python-set nil)))
-
+  ;; (defun gozes-switch-prefered-system-python ()
+  ;;   (interactive)
+  ;;   (if gozes-prefered-system-python-set
+  ;;       (setq py-python-command gozes-prefered-system-python))
+  ;;   (progn
+  ;;     (setq gozes-prefered-sysetm-python (executable-find "python2"))
+  ;;     (setq gozes-prefered-sysetm-python-set nil)))
 
 
   (use-package python-mode
@@ -142,19 +141,20 @@ You will need to install jedi with pip for this to work
       (use-package anaconda-mode
         :ensure t
         :defer t
-        :config
+        :init
         (progn
           (add-hook 'python-mode-hook 'anaconda-mode)
           (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
-          (setq python-shell-virtualenv-path nil)))))
+          (add-hook 'python-made-hook 'company-anaconda)
+          (use-package company-anaconda
+            :ensure t
+            :defer t)))))
 
 
-  (use-package company-anaconda
-                  :ensure t
-                 :defer t
-                 :config
-                 (progn
-                   (add-to-list 'company-backends 'company-anaconda)))
+
+
+
+
 
 
 #+END_SRC
