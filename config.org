@@ -138,15 +138,25 @@ You will need to install jedi with pip for this to work
     :ensure t
     :defer t
     :init
-    (use-package elpy
-      :ensure t
-      :defer t  
-    
-      :config
-      (progn
-        (elpy-enable)
-        (setq elpy-rpc-python-command gozes-prefered-system-python)
-        )))
+    (progn
+      (use-package anaconda-mode
+        :ensure t
+        :defer t
+        :init
+        (progn
+               (use-package company-anaconda
+                 :ensure t
+                 :defer t
+                 :config
+                 (progn
+                   (add-to-list 'company-backends 'company-anaconda))))
+        :config
+        (progn
+          (add-hook 'python-mode-hook 'anaconda-mode)
+          (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+          (setq python-shell-virtualenv-path nil))))))
+
+
 
 #+END_SRC
 ** Ruby
