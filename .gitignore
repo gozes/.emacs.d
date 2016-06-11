@@ -35,3 +35,4 @@ session.*
 /backups/!home!gozes!Documents!.emacs.d!elpa!async-20160108.1249!async-autoloads.el~
 backups/*
 /anaconda-mode/0.1.2/anaconda_mode-0.1.2.dist-info/DESCRIPTION.rst
+/anaconda-mode/0.1.2/anaconda_mode-0.1.2.dist-info/INSTALLER
