@@ -138,17 +138,13 @@ You will need to install jedi with pip for this to work
     :defer t
     :init
     (progn
-      (use-package anaconda-mode
+      (use-package pyvenv :ensure t :defer t)
+      (use-package elpy
         :ensure t
         :defer t
-        :init
+        :config
         (progn
-          (add-hook 'python-mode-hook 'anaconda-mode)
-          (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
-          (add-hook 'python-made-hook 'company-anaconda)
-          (use-package company-anaconda
-            :ensure t
-            :defer t)))))
+          (elpy-enable)))))
 
 
 
