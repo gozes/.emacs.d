@@ -133,18 +133,12 @@ You will need to install jedi with pip for this to work
   ;;     (setq gozes-prefered-sysetm-python-set nil)))
 
 
-  (use-package python-mode
-    :ensure t
-    :defer t
-    :init
-    (progn
-      (use-package pyvenv :ensure t :defer t)
-      (use-package elpy
+
+
+  (use-package elpy
         :ensure t
-        :defer t
         :config
-        (progn
-          (elpy-enable)))))
+        (elpy-enable))
 
 
 
