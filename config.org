@@ -426,6 +426,7 @@ mode to edit fish shell files
 #+END_SRC
 ** JSON mode
 #+BEGIN_SRC emacs-lisp
-  (use-package json-mode :defer t)
+  (use-package json-mode :defer t :ensure t)
 
 #+END_SRC 
+
