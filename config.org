@@ -34,6 +34,9 @@
 
   ;; Don't beep at me
   (setq visible-bell t)
+
+  ;; make sure to use bash for any interactive shell
+  (setq shell-file-name "/bin/bash")
 #+END_SRC
 
 * Themes
