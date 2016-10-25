@@ -412,7 +412,8 @@ taken strated from John Li (jetpack) reply to my question on [[https://plus.goog
     :config
     (progn
       (exec-path-from-shell-initialize)
-      (exec-path-from-shell-copy-env "GOPATH")))
+      (exec-path-from-shell-copy-env "GOPATH")
+      (exec-path-from-shell-copy-env "WORKON_HOME")))
 #+END_SRC
 
 ** FlyCheck
