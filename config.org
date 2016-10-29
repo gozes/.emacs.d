@@ -142,7 +142,7 @@ You will need to install jedi with pip for this to work
         :ensure t
         :config
         (elpy-enable)
-        (add-hook 'before-save-hook (lambda () (elpy-format-code))))
+        (add-hook 'before-save-hook (lambda () (save-excursion (elpy-format-code)))))
 
 
 
@@ -346,10 +346,10 @@ copyed the keybingdings from [[https://ebzzry.github.io/emacs-pairs.html][this]]
        ("M-[" . sp-backward-unwrap-sexp)
        ("M-]" . sp-unwrap-sexp)
        ("C-x C-t" . sp-transpose-hybrid-sexp)
-       ("C-S-)" . sp-forward-slurp-sexp)
-       ("C-S-(" . sp-forward-barf-sexp)
-       ("C-S-}" . sp-backward-slurp-sexp)
-       ("C-S-{" . sp-backward-barf-sexp))))
+       ("C-)" . sp-forward-slurp-sexp)
+       ("C-(" . sp-forward-barf-sexp)
+       ("C-}" . sp-backward-slurp-sexp)
+       ("C-{" . sp-backward-barf-sexp))))
 
 #+END_SRC
 ** Markdown
@@ -434,4 +434,11 @@ mode to edit fish shell files
   (use-package json-mode :defer t :ensure t)
 
 #+END_SRC 
+
+
+
+
+
+
+
 
