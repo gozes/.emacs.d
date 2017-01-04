@@ -487,3 +487,8 @@ mode to edit fish shell files
 
 
 
+** Prodigy
+#+BEGIN_SRC emacs-lisp
+  (use-package prodigy :ensure t :defer t)
+#+END_SRC
+
