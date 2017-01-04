@@ -497,7 +497,6 @@ mode to edit fish shell files
 
 
 
-
 ** Prodigy
 #+BEGIN_SRC emacs-lisp
   (use-package prodigy
@@ -511,3 +510,15 @@ mode to edit fish shell files
     :kill-process-buffer-on-stop t)
 #+END_SRC
 
+
+** NeoTree
+#+BEGIN_SRC emacs-lisp
+  (use-package neotree
+    :ensure t
+    :bind (("C-c C-n t" . neotree-toggle))
+    :config
+    (progn
+      (setq neo-theme (if (display-graphic-p) 'icons 'arrow))))
+
+  (use-package all-the-icons :ensure t)
+#+END_SRC
