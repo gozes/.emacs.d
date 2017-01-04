@@ -279,6 +279,18 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
     :config
     (progn
       (add-hook 'js2-mode-hook 'setup-tide-mode)))
+
+  (use-package tern :ensure t)
+
+  (use-package company-tern :ensure t
+    :config
+    (progn
+      (add-to-list 'company-backends 'company-tern)
+      (setq company-tern-property-marker " <p>")
+      (setq company-tern-property-marker nil)
+      (setq company-tooltip-align-annotations t)))
+
+  (use-package company-web :ensure t)
 #+END_SRC
 * Packages
 ** Org

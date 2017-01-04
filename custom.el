@@ -6,7 +6,7 @@
  '(bookmark-default-file "~emacs.d/bookmarks.el")
  '(package-selected-packages
    (quote
-    (js2-mode web-mode tide json-mode fish-mode flycheck exec-path-from-shell restart-emacs discover-my-major markdown-mode smartparens helm-descbinds helm magit company-go go-eldoc go-mode robe elpy alchemist cyberpunk-theme use-package))))
+    (prodigy js2-mode web-mode tide json-mode fish-mode flycheck exec-path-from-shell restart-emacs discover-my-major markdown-mode smartparens helm-descbinds helm magit company-go go-eldoc go-mode robe elpy alchemist cyberpunk-theme use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
