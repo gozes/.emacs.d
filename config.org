@@ -37,6 +37,8 @@
 
   ;; make sure to use bash for any interactive shell
   (setq shell-file-name "/bin/bash")
+
+  (prefer-coding-system 'utf-8)
 #+END_SRC
 
 * Themes
