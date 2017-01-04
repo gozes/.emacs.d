@@ -498,9 +498,16 @@ mode to edit fish shell files
 
 
 
-
 ** Prodigy
 #+BEGIN_SRC emacs-lisp
-  (use-package prodigy :ensure t :defer t)
+  (use-package prodigy
+    :ensure t
+    :defer t)
+
+  (prodigy-define-service
+    :name "ArangoDB"
+    :command "arangod"
+    :args '("-c" "/home/gozes/.arango/arangod.conf")
+    :kill-process-buffer-on-stop t)
 #+END_SRC
 
