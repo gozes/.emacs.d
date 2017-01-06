@@ -275,12 +275,17 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
               (when (string-equal "jsx" (file-name-extension buffer-file-name))
                 (tide-mode))))))
 
+
+  (use-package js2-refactor :ensure t)
+
   (use-package js2-mode
     :ensure t
     :defer t
     :config
     (progn
-      (add-hook 'js2-mode-hook 'setup-tide-mode)))
+      (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+      (add-hook 'js-mode-hook (lambda () (tern-mode t)))
+      (add-hook 'js2-mode-hook #'js2-refactor-mode)))
 
   (use-package tern :ensure t)
 
