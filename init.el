@@ -19,7 +19,12 @@
   (package-install 'use-package))
 
 (use-package diminish
-  :ensure t)
+  :ensure t
+  :init
+  (diminish 'company)
+  (diminish 'helm)
+  (diminish 'which-key-mode)
+  (diminish 'beacon-mode))
 
 (eval-when-compile
   (require 'use-package))
