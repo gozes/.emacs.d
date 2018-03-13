@@ -204,8 +204,8 @@ You will need to install jedi with pip for this to work
 Because Go is stupid and want you to use it's damm workspacse you have to setup the path this way for it to work
 
 #+BEGIN_SRC sh
-  export GOPATH=$HOME/.go:$HOME/Code/go
-  export PATH=$PATH:$HOME/.go/bin:$HOME/Code/go/bin
+  export GOPATH=$HOME/go:$HOME/Code/go
+  export PATH=$PATH:$HOME/go/bin:$HOME/Code/go/bin
 
 #+END_SRC
 
@@ -497,11 +497,7 @@ mode to edit fish shell files
 #+BEGIN_SRC emacs-lisp
   (use-package json-mode :defer t :ensure t)
 
-#+END_SRC 
-
-
-
-
+#+END_SRC
 
 ** Prodigy
 #+BEGIN_SRC emacs-lisp
@@ -526,4 +522,12 @@ mode to edit fish shell files
       ))
 
   (use-package all-the-icons :ensure t)
+#+END_SRC
+** Which Key
+#+BEGIN_SRC emacs-lisp
+  (use-package which-key
+    :diminish t
+    :ensure t
+    :init
+    (which-key-mode))
 #+END_SRC

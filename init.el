@@ -18,6 +18,9 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(use-package diminish
+  :ensure t)
+
 (eval-when-compile
   (require 'use-package))
 (require 'diminish)                ;; if you use :diminish
