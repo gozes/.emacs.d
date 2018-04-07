@@ -88,8 +88,8 @@
 #+BEGIN_SRC emacs-lisp
   (use-package spacemacs-theme
     :ensure t
-    :disabled t
-    :init (load-theme 'spacemacs-dark t))
+    :init ;(load-theme 'spacemacs-dark t)
+    )
 
 
 #+END_SRC
@@ -571,5 +571,18 @@ mode to edit fish shell files
 #+BEGIN_SRC emacs-lisp
   (use-package popup-kill-ring
     :ensure t
-    :bind ("M-y". popup-kill-ring))
+    :bind ("M-y" . popup-kill-ring))
 #+END_SRC
+** Zen Mode
+#+BEGIN_SRC emacs-lisp
+  (use-package zen-mode
+    :ensure t
+    :disabled t
+    :bind ("C-M-z" . zen-mode))
+
+#+END_SRC
+
+
+
+
+
