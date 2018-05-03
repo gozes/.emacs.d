@@ -12,7 +12,7 @@
     ("d6922c974e8a78378eacb01414183ce32bc8dbf2de78aabcc6ad8172547cb074" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(package-selected-packages
    (quote
-    (zen-mode popup-kill-ring org-bullets spaceline avy beacon which-key js2-refactor diminish all-the-icons neotree company-web company-tern tern prodigy js2-mode web-mode tide json-mode fish-mode flycheck exec-path-from-shell restart-emacs discover-my-major markdown-mode smartparens helm-descbinds helm magit company-go go-eldoc go-mode robe elpy alchemist cyberpunk-theme use-package))))
+    (elm-mode zen-mode popup-kill-ring org-bullets spaceline avy beacon which-key js2-refactor diminish all-the-icons neotree company-web company-tern tern prodigy js2-mode web-mode tide json-mode fish-mode flycheck exec-path-from-shell restart-emacs discover-my-major markdown-mode smartparens helm-descbinds helm magit company-go go-eldoc go-mode robe elpy alchemist cyberpunk-theme use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
