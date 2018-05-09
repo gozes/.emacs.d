@@ -323,9 +323,15 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
   (use-package reason-mode
     :ensure t
     :init
-    (add-hook 'reason-mode-hook (lambda ()
-            (add-hook 'before-save-hook 'refmt-before-save))))
+    (progn
+      (add-hook 'reason-mode-hook (lambda ()
+                                    (add-hook 'before-save-hook 'refmt-before-save)))
+      (add-hook 'reason-mode-hook #'utop-minor-mode)))
 
+  (use-package utop
+    :ensure t
+    :init
+    (setq utop-command "opam config exec -- rtop -emacs"))
 #+END_SRC
 * Packages
 ** Org
