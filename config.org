@@ -318,6 +318,15 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
       (setq elm-format-on-save t)))
 
 #+END_SRC
+** ReasonML
+#+BEGIN_SRC emacs-lisp
+  (use-package reason-mode
+    :ensure t
+    :init
+    (add-hook 'reason-mode-hook (lambda ()
+            (add-hook 'before-save-hook 'refmt-before-save))))
+
+#+END_SRC
 * Packages
 ** Org
 #+BEGIN_SRC emacs-lisp
