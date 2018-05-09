@@ -560,7 +560,7 @@ mode to edit fish shell files
 ** Which Key
 #+BEGIN_SRC emacs-lisp
   (use-package which-key
-    :diminish t
+    :diminish which-key-mode
     :ensure t
     :init
     (which-key-mode))
@@ -568,7 +568,7 @@ mode to edit fish shell files
 ** Beacon
 #+BEGIN_SRC emacs-lisp
   (use-package beacon
-    :diminish t
+    :diminish beacon-mode
     :ensure t
     :init
     (beacon-mode 1))
