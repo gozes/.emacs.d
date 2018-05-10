@@ -583,8 +583,9 @@ mode to edit fish shell files
 #+BEGIN_SRC emacs-lisp
   (use-package avy
     :ensure t
-    :bind
-    ("M-s" . avy-goto-char))
+    :config
+    (avy-setup-default))
+
 #+END_SRC
 ** Spaceline
 #+BEGIN_SRC emacs-lisp
