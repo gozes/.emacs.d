@@ -620,6 +620,47 @@ mode to edit fish shell files
   (use-package hydra
     :ensure t)
 
+  (defun hydra-move-splitter-left (arg)
+    "Move window splitter left."
+    (interactive "p")
+    (if (let ((windmove-wrap-around))
+          (windmove-find-other-window 'right))
+        (shrink-window-horizontally arg)
+      (enlarge-window-horizontally arg)))
+
+  (defun hydra-move-splitter-right (arg)
+    "Move window splitter right."
+    (interactive "p")
+    (if (let ((windmove-wrap-around))
+          (windmove-find-other-window 'right))
+        (enlarge-window-horizontally arg)
+      (shrink-window-horizontally arg)))
+
+  (defun hydra-move-splitter-up (arg)
+    "Move window splitter up."
+    (interactive "p")
+    (if (let ((windmove-wrap-around))
+          (windmove-find-other-window 'up))
+        (enlarge-window arg)
+      (shrink-window arg)))
+
+  (defun hydra-move-splitter-down (arg)
+    "Move window splitter down."
+    (interactive "p")
+    (if (let ((windmove-wrap-around))
+          (windmove-find-other-window 'up))
+        (shrink-window arg)
+      (enlarge-window arg)))
+
+
+  (defhydra hydra-splitter (global-map "C-M-s")
+    "splitter"
+    ("r" hydra-move-splitter-right)
+    ("l" hydra-move-splitter-left)
+    ("u" hydra-move-splitter-up)
+    ("d" hydra-move-splitter-down))
+
+
   (global-set-key
    (kbd "C-M-o")
    (defhydra hydra-window ()
@@ -645,5 +686,7 @@ mode to edit fish shell files
      ("i" ace-maximize-window "ace-one" :exit t)
      ("b" ido-switch-buffer "buf")
      ("q" nil "cancel")
+     ("f" helm-find-files "find-file" :exit t)
      ("U" (progn (winner-undo) (setq this-command 'winner-undo)) "undo")))
+
 #+END_SRC
