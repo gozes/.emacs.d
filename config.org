@@ -248,10 +248,9 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
   (use-package tide
     :ensure t
     :defer t
-    :init
-    (tide-setup)
     :config
     (progn
+      (tide-setup)
       (flycheck-mode +1)
       (setq flycheck-check-syntax-automatically '(save mode-enabled))
       (eldoc-mode +1)
