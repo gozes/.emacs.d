@@ -148,9 +148,11 @@ You will need to install jedi with pip for this to work
 
 
   (use-package elpy
-        :ensure t
-        :config
-        (elpy-enable))
+	:ensure t
+	:config
+	(progn
+	  (elpy-enable)
+	  (add-hook 'elpy-mode-hook (lambda () (add-hook 'before-save-hook 'elpy-format-code)))))
 
 
 
