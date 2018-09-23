@@ -367,7 +367,7 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
    #+BEGIN_SRC emacs-lisp
      (use-package lsp-rust
        :ensure t
-       :config (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))
+       :init (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))
 
 
      (use-package cargo :ensure t)
