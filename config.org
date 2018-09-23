@@ -1,6 +1,9 @@
 * Customs and Bookmarks
 ** Customs
    Set up the customize file to its own separate file, instead of saving customize settings in init.el
+   
+   Note: To add a source block use <s TAB
+   Note: To edit the source block in the correct mode use C-c single parentesses
 
    #+BEGIN_SRC emacs-lisp
      (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -247,6 +250,10 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
 #+END_SRC
 ** Web Development
 #+BEGIN_SRC emacs-lisp
+
+  (use-package lsp-javascript-typescript
+    :ensure t)
+
   (use-package tide
     :ensure t
     :defer t
@@ -268,6 +275,23 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
       (add-hook 'typescript-mode-hook 'tide-mode)
       (add-hook 'typescript-mode-hook 'prettier-js-mode)))
 
+  ;; (use-package web-mode
+  ;;   :ensure t
+  ;;   :defer t
+  ;;   :mode (("\\.tsx\\'" . web-mode)
+  ;; 	 ("\\.jsx\\'" . web-mode))
+  ;;   :config
+  ;;   (progn
+  ;;     (add-hook 'web-mode-hook
+  ;; 	  (lambda ()
+  ;; 	    (when (string-equal "tsx" (file-name-extension buffer-file-name))
+  ;; 	      (tide-mode))))
+  ;;     (add-hook 'web-mode-hook
+  ;; 	  (lambda ()
+  ;; 	    (when (string-equal "jsx" (file-name-extension buffer-file-name))
+  ;; 	      (tide-mode))))))
+
+
   (use-package web-mode
     :ensure t
     :defer t
@@ -278,11 +302,12 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
       (add-hook 'web-mode-hook
 	    (lambda ()
 	      (when (string-equal "tsx" (file-name-extension buffer-file-name))
-		(tide-mode))))
-      (add-hook 'web-mode-hook
-	    (lambda ()
-	      (when (string-equal "jsx" (file-name-extension buffer-file-name))
 		(tide-mode))))))
+
+  (use-package rjsx-mode
+    :ensure t
+    :config (progn
+	      (add-hook 'rjsx-mode #'lsp-javascript-flow-enable)))
 
 
   (use-package js2-refactor :ensure t)
@@ -293,12 +318,13 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
     :config
     (progn
       (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-      (add-hook 'js-mode-hook (lambda () (tern-mode t)))
+      (add-hook 'js2-mode-hook #'lsp-javascript-flow-enable)
       (add-hook 'js2-mode-hook #'js2-refactor-mode)))
 
-  (use-package tern :ensure t)
+  (use-package tern :ensure t :disabled)
 
   (use-package company-tern :ensure t
+    :disabled
     :config
     (progn
       (add-to-list 'company-backends 'company-tern)
@@ -337,6 +363,22 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
     :init
     (setq utop-command "opam config exec -- rtop -emacs"))
 #+END_SRC
+** Rust
+   #+BEGIN_SRC emacs-lisp
+     (use-package lsp-rust
+       :ensure t
+       :config (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))
+
+
+     (use-package cargo :ensure t)
+
+     (use-package rust-mode
+       :ensure t
+       :config (progn
+		 (add-hook 'rust-mode-hook #'lsp-rust-enable)
+		 (add-hook 'rust-mode-hook #'flycheck-mode)
+		 (add-hook 'rust-mode-hook 'cargo-minor-mode)))
+   #+END_SRC
 * Packages
 ** Org
 #+BEGIN_SRC emacs-lisp
@@ -355,7 +397,11 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
     :ensure t
     :diminish company-mode  
     :config (progn
-            (global-company-mode)))
+	      (global-company-mode)))
+
+  (use-package company-lsp
+    :ensure t
+    :config (push 'company-lsp company-backends))
 
 
 #+END_SRC
@@ -694,3 +740,12 @@ mode to edit fish shell files
      ("U" (progn (winner-undo) (setq this-command 'winner-undo)) "undo")))
 
 #+END_SRC
+** LSP
+   #+BEGIN_SRC emacs-lisp
+     (use-package lsp-ui :ensure t)
+
+     (use-package lsp-mode
+       :ensure t
+       :config (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+   #+END_SRC
+
