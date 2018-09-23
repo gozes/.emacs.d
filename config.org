@@ -355,7 +355,7 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
     :init
     (progn
       (add-hook 'reason-mode-hook (lambda ()
-                                    (add-hook 'before-save-hook 'refmt-before-save)))
+				    (add-hook 'before-save-hook 'refmt-before-save)))
       (add-hook 'reason-mode-hook #'utop-minor-mode)))
 
   (use-package utop
@@ -377,7 +377,9 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
        :config (progn
 		 (add-hook 'rust-mode-hook #'lsp-rust-enable)
 		 (add-hook 'rust-mode-hook #'flycheck-mode)
-		 (add-hook 'rust-mode-hook 'cargo-minor-mode)))
+		 (add-hook 'rust-mode-hook 'cargo-minor-mode)
+		 (add-hook 'rust-mode-hook (lambda ()
+				       (add-hook 'before-save-hook 'cargo-process-fmt)))
    #+END_SRC
 * Packages
 ** Org
