@@ -370,7 +370,8 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
        :init (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))
 
 
-     (use-package cargo :ensure t)
+     (use-package cargo :ensure t
+       :config (setq compilation-ask-about-save nil))
 
      (use-package rust-mode
        :ensure t
