@@ -509,7 +509,10 @@ copyed the keybingdings from [[https://ebzzry.github.io/emacs-pairs.html][this]]
 #+BEGIN_SRC emacs-lisp
   (use-package markdown-mode
     :ensure t
-    :defer t)
+    :mode (("README\\.md\\'" . gfm-mode)
+	   ("\\.md\\'" . markdown-mode)
+	   ("\\.markdown\\'" . markdown-mode))
+    :init (setq markdown-command "multimarkdown"))
 
 #+END_SRC
 ** Diminish
