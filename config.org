@@ -377,9 +377,7 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
        :config (progn
 		 (add-hook 'rust-mode-hook #'lsp-rust-enable)
 		 (add-hook 'rust-mode-hook #'flycheck-mode)
-		 (add-hook 'rust-mode-hook 'cargo-minor-mode)
-		 (add-hook 'rust-mode-hook (lambda ()
-				       (add-hook 'before-save-hook 'cargo-process-fmt)))
+		 (add-hook 'rust-mode-hook 'cargo-minor-mode)))
    #+END_SRC
 * Packages
 ** Org
