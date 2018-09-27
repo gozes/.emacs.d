@@ -375,6 +375,8 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
 
      (use-package rust-mode
        :ensure t
+       :mode "\\.rs\\"
+       :init (setq rust-format-on-save t)
        :config (progn
 		 (add-hook 'rust-mode-hook #'lsp-rust-enable)
 		 (add-hook 'rust-mode-hook #'flycheck-mode)
