@@ -252,7 +252,9 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
 #+BEGIN_SRC emacs-lisp
 
   (use-package lsp-javascript-typescript
-    :ensure t)
+    :ensure t
+    :hook ((js2-mode . lsp-javascript-typescript-enable)
+	   (rjsx-mode . lsp-javascript-typescript-enable)))
 
   (use-package tide
     :ensure t
@@ -292,34 +294,48 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
   ;; 	      (tide-mode))))))
 
 
-  (use-package web-mode
-    :ensure t
-    :defer t
-    :mode (("\\.tsx\\'" . web-mode)
-	   ("\\.jsx\\'" . web-mode))
-    :config
-    (progn
-      (add-hook 'web-mode-hook
-	    (lambda ()
-	      (when (string-equal "tsx" (file-name-extension buffer-file-name))
-		(tide-mode))))))
+  ;; (use-package web-mode
+  ;;   :ensure t
+  ;;   :defer t
+  ;;   :mode (("\\.tsx\\'" . web-mode)
+  ;; 	 ("\\.jsx\\'" . web-mode))
+  ;;   :config
+  ;;   (progn
+  ;;     (add-hook 'web-mode-hook
+  ;; 	  (lambda ()
+  ;; 	    (when (string-equal "tsx" (file-name-extension buffer-file-name))
+  ;; 	      (tide-mode))))))
 
   (use-package rjsx-mode
     :ensure t
-    :config (progn
-	      (add-hook 'rjsx-mode #'lsp-javascript-flow-enable)))
+    :mode (("\\.js\\'" . rjsx-mode)
+	   ("\\.jsx\\'" . rjsx-mode))
+    )
 
 
-  (use-package js2-refactor :ensure t)
+  (use-package js2-refactor :ensure t
+    :hook ((js2-mode . js2-refactor-mode)))
+
+
+
+
+  ;; (use-package js2-mode
+  ;;   :ensure t
+  ;;   :defer t
+  ;;   :mode "\\.js\\'"
+  ;;   :config
+  ;;   (progn
+  ;;     (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  ;;     (add-hook 'js2-mode-hook #'lsp-javascript-typescript-enable)
+  ;;     (add-hook 'js2-mode-hook #'js2-refactor-mode)))
+
+
 
   (use-package js2-mode
     :ensure t
     :defer t
-    :config
-    (progn
-      (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-      (add-hook 'js2-mode-hook #'lsp-javascript-flow-enable)
-      (add-hook 'js2-mode-hook #'js2-refactor-mode)))
+    :mode "\\.js\\'"
+    )
 
   (use-package tern :ensure t :disabled)
 
@@ -332,9 +348,20 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
       (setq company-tern-property-marker nil)
       (setq company-tooltip-align-annotations t)))
 
-  (use-package company-web :ensure t)
-  (use-package prettier-js :ensure t)
-  (use-package graphql-mode :ensure t :init (add-hook 'graphql-mode-hook 'prettier-js-mode))
+  (use-package company-web :ensure t :disabled)
+
+  (use-package prettier-js :ensure t
+    :hook ((js2-mode . prettier-js-mode)
+	   (graphql-mode . prettier-js-mode)
+	   (rjsx-mode . prettier-js-mode)
+	   (json-mode . prettier-js-mode)))
+
+  (use-package graphql-mode :ensure t)
+
+
+
+
+
 #+END_SRC
 ** Elm
 #+BEGIN_SRC emacs-lisp
@@ -375,7 +402,7 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
 
      (use-package rust-mode
        :ensure t
-       :mode "\\.rs\\"
+       :mode "\\.rs\\'" 
        :init (setq rust-format-on-save t)
        :config (progn
 		 (add-hook 'rust-mode-hook #'lsp-rust-enable)
@@ -588,10 +615,13 @@ mode to edit fish shell files
 
 #+BEGIN_SRC emacs-lisp
   (use-package fish-mode :ensure t)
+
+  (use-package fish-completion :ensure t
+    :config (global-fish-completion-mode))
 #+END_SRC
 ** JSON mode
 #+BEGIN_SRC emacs-lisp
-  (use-package json-mode :defer t :ensure t :init (add-hook 'json-mode-hook 'prettier-js-mode))
+  (use-package json-mode :defer t :ensure t)
 
 #+END_SRC
 
@@ -748,10 +778,24 @@ mode to edit fish shell files
 #+END_SRC
 ** LSP
    #+BEGIN_SRC emacs-lisp
-     (use-package lsp-ui :ensure t)
+     (use-package lsp-ui :ensure t
+       :hook ((lsp-mode . lsp-ui-mode)))
 
      (use-package lsp-mode
-       :ensure t
-       :config (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+       :ensure t)
    #+END_SRC
 
+** Auto Update Pacagkes
+#+BEGIN_SRC emacs-lisp
+  (use-package auto-package-update :ensure t
+    :after (fundamental)
+    :init (setq auto-package-update-delete-old-versions t)
+    :config (auto-package-update-now)
+    )
+#+END_SRC
+** Golden Ratio
+#+BEGIN_SRC emacs-lisp
+  (use-package golden-ratio :ensure t
+    :diminish golden-ratio-mode
+    :config (golden-ratio-mode 1))
+#+END_SRC
