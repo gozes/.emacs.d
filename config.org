@@ -318,18 +318,17 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
 
 
 
-  (use-package js-auto-format-mode :ensure t
-    :hook ((rjsx-mode . (lambda ()
-			  (add-hook 'before-save-hook 'js-auto-format-execute)))
-	   (js2-made . (lambda ()
-			  (add-hook 'before-save-hook 'js-auto-format-execute))))
+  (use-package js-auto-format-mode :ensure t :disabled
+    :custom
+    (js-auto-format-command "prettier")
+    (js-auto-format-command-args "--write --single-quote --no-semi")
+    :hook ((rjsx-mode . js-auto-format-mode)
+	   (js2-made . js-auto-format-mode))
     )
 
   (use-package add-node-modules-path :ensure t
-    :hook ((rjsx-mode . (lambda ()
-			  (add-hook 'before-save-hook 'add-node-modules-path)))
-	   (js2-made . (lambda ()
-			  (add-hook 'before-save-hook 'add-node-modules-path))))
+    :hook ((rjsx-mode . add-node-modules-path)
+	   (js2-made . add-node-modules-path))
     )
 
 
@@ -364,7 +363,12 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
   (use-package company-web :ensure t :disabled)
 
   (use-package prettier-js :ensure t
-    :hook (
+    :init
+    (setq prettier-js-args '(
+			     "--trailing-comma" "all"
+			     ))
+    :hook ((rjsx-mode . prettier-js-mode)
+	   (js2-mode . prettier-js-mode)
 	   (graphql-mode . prettier-js-mode)
 	   (json-mode . prettier-js-mode)))
 
