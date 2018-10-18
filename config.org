@@ -313,10 +313,24 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
     )
 
 
-  (use-package js2-refactor :ensure t
+  (use-package js2-refactor :ensure t :disabled
     :hook ((js2-mode . js2-refactor-mode)))
 
 
+
+  (use-package js-auto-format-mode :ensure t
+    :hook ((rjsx-mode . (lambda ()
+			  (add-hook 'before-save-hook 'js-auto-format-execute)))
+	   (js2-made . (lambda ()
+			  (add-hook 'before-save-hook 'js-auto-format-execute))))
+    )
+
+  (use-package add-node-modules-path :ensure t
+    :hook ((rjsx-mode . (lambda ()
+			  (add-hook 'before-save-hook 'add-node-modules-path)))
+	   (js2-made . (lambda ()
+			  (add-hook 'before-save-hook 'add-node-modules-path))))
+    )
 
 
   ;; (use-package js2-mode
@@ -334,7 +348,6 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
   (use-package js2-mode
     :ensure t
     :defer t
-    :mode "\\.js\\'"
     )
 
   (use-package tern :ensure t :disabled)
@@ -351,9 +364,8 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
   (use-package company-web :ensure t :disabled)
 
   (use-package prettier-js :ensure t
-    :hook ((js2-mode . prettier-js-mode)
+    :hook (
 	   (graphql-mode . prettier-js-mode)
-	   (rjsx-mode . prettier-js-mode)
 	   (json-mode . prettier-js-mode)))
 
   (use-package graphql-mode :ensure t)
