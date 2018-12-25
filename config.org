@@ -388,6 +388,7 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
 ** Elm
 #+BEGIN_SRC emacs-lisp
   (use-package elm-mode
+    :disabled
     :ensure t
     :init
     (progn
@@ -400,6 +401,7 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
 ** ReasonML
 #+BEGIN_SRC emacs-lisp
   (use-package reason-mode
+    :disabled
     :ensure t
     :init
     (progn
@@ -408,6 +410,7 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
       (add-hook 'reason-mode-hook #'utop-minor-mode)))
 
   (use-package utop
+    :disabled
     :ensure t
     :init
     (setq utop-command "opam config exec -- rtop -emacs"))
@@ -415,6 +418,7 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
 ** Rust
    #+BEGIN_SRC emacs-lisp
      (use-package lsp-rust
+       :disabled
        :ensure t
        :init (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))
 
@@ -424,12 +428,11 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
 
      (use-package rust-mode
        :ensure t
+       :hook ((rust-mode . lsp)
+	      (rust-mode . cargo-minor-mode))
        :mode "\\.rs\\'" 
        :init (setq rust-format-on-save t)
-       :config (progn
-		 (add-hook 'rust-mode-hook #'lsp-rust-enable)
-		 (add-hook 'rust-mode-hook #'flycheck-mode)
-		 (add-hook 'rust-mode-hook 'cargo-minor-mode)))
+       )
    #+END_SRC
 * Packages
 ** Org
@@ -451,9 +454,6 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
     :config (progn
 	      (global-company-mode)))
 
-  (use-package company-lsp
-    :ensure t
-    :config (push 'company-lsp company-backends))
 
 
 #+END_SRC
@@ -628,7 +628,7 @@ taken strated from John Li (jetpack) reply to my question on [[https://plus.goog
 
 ** FlyCheck
 #+BEGIN_SRC emacs-lisp
-  (use-package flycheck :ensure t :defer t)
+  (use-package flycheck :ensure t :defer t :diminish (flycheck-mode . ""))
 
 #+END_SRC
 
@@ -663,6 +663,7 @@ mode to edit fish shell files
 ** NeoTree
 #+BEGIN_SRC emacs-lisp
   (use-package neotree
+    :disabled
     :ensure t
     :bind (("C-c C-n t" . neotree-toggle))
     :config
@@ -674,7 +675,7 @@ mode to edit fish shell files
 ** Which Key
 #+BEGIN_SRC emacs-lisp
   (use-package which-key
-    :diminish (which-key . "")
+    :diminish (which-key-mode . "")
     :ensure t
     :init
     (which-key-mode))
@@ -801,10 +802,13 @@ mode to edit fish shell files
 ** LSP
    #+BEGIN_SRC emacs-lisp
      (use-package lsp-ui :ensure t
-       :hook ((lsp-mode . lsp-ui-mode)))
+       :commands lsp-ui-mode)
+
+     (use-package company-lsp :ensure t :commands company-lsp)
 
      (use-package lsp-mode
-       :ensure t)
+       :ensure t
+       :commands lsp)
    #+END_SRC
 
 ** Auto Update Pacagkes
