@@ -128,6 +128,7 @@
 
 #+BEGIN_SRC emacs-lisp
   (use-package alchemist
+    :disabled
     :ensure t
     :defer t)
 
@@ -168,18 +169,20 @@ You will need to install jedi with pip for this to work
 ** Ruby
 #+BEGIN_SRC emacs-lisp
   (use-package ruby-mode
+    :disabled
     :defer t
     :init
     (use-package robe
+    :disabled
     :ensure t
     :defer t
     :config
     (progn
       (add-hook 'ruby-mode-hook 'robe-mode)
       (add-to-list 'auto-mode-alist
-                   '("\\.\\(?:gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
+		   '("\\.\\(?:gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
       (add-to-list 'auto-mode-alist
-                   '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
+		   '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
       (push 'company-robe company-backends))))
 
 #+END_SRC
@@ -187,7 +190,7 @@ You will need to install jedi with pip for this to work
 #+BEGIN_SRC emacs-lisp
   (use-package haskell-mode
     :ensure t
-    :disabled t
+    :disabled 
     :defer t
     :config
     (progn
@@ -203,12 +206,12 @@ You will need to install jedi with pip for this to work
 
   (use-package company-ghc
     :ensure t
-    :disabled t
+    :disabled 
     :defer t)
 
   (use-package ghc
     :ensure t
-    :disabled t
+    :disabled 
     :defer t)
 
 #+END_SRC
@@ -423,13 +426,15 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
        :init (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))
 
 
-     (use-package cargo :ensure t
+     (use-package cargo :ensure t :diminish (cargo-minor-mode . "")
        :config (setq compilation-ask-about-save nil))
 
      (use-package rust-mode
        :ensure t
-       :hook ((rust-mode . lsp)
-	      (rust-mode . cargo-minor-mode))
+       :hook ((rust-mode . cargo-minor-mode)
+	      (rust-mode . lsp)
+	      (rust-mode . lsp-ui-mode)
+	      (rust-mode . flycheck-mode))
        :mode "\\.rs\\'" 
        :init (setq rust-format-on-save t)
        )
@@ -628,7 +633,7 @@ taken strated from John Li (jetpack) reply to my question on [[https://plus.goog
 
 ** FlyCheck
 #+BEGIN_SRC emacs-lisp
-  (use-package flycheck :ensure t :defer t :diminish (flycheck-mode . ""))
+  (use-package flycheck :ensure t :defer t)
 
 #+END_SRC
 
@@ -801,10 +806,16 @@ mode to edit fish shell files
 #+END_SRC
 ** LSP
    #+BEGIN_SRC emacs-lisp
-     (use-package lsp-ui :ensure t
+     (use-package spinner :ensure t)
+
+     (use-package ht :ensure t)
+
+     (use-package dash-functional :ensure t)
+
+     (use-package lsp-ui :ensure t :hook ((lsp-mode . lsp-ui-mode))
        :commands lsp-ui-mode)
 
-     (use-package company-lsp :ensure t :commands company-lsp)
+     (use-package company-lsp :ensure t :commands company-lsp :init (push 'company-lsp company-backends))
 
      (use-package lsp-mode
        :ensure t
@@ -825,3 +836,8 @@ mode to edit fish shell files
     :diminish golden-ratio-mode
     :config (golden-ratio-mode 1))
 #+END_SRC
+
+
+
+
+
