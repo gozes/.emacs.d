@@ -310,6 +310,8 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
     :ensure t
     :mode (("\\.js\\'" . rjsx-mode)
 	   ("\\.jsx\\'" . rjsx-mode))
+    :config
+    (add-hook 'rjsx-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t)))
     )
 
 
@@ -363,14 +365,18 @@ see this Github [[https://github.com/nsf/gocode/issues/326][issue]]
   (use-package company-web :ensure t :disabled)
 
   (use-package prettier-js :ensure t
+  
     :init
     (setq prettier-js-args '(
 			     "--trailing-comma" "all"
 			     ))
-    :hook ((rjsx-mode . prettier-js-mode)
+    :hook ((rjsx-mode. prettier-js-mode)
 	   (js2-mode . prettier-js-mode)
 	   (graphql-mode . prettier-js-mode)
 	   (json-mode . prettier-js-mode)))
+
+
+  (use-package eslint-fix :ensure t)
 
   (use-package graphql-mode :ensure t)
 
@@ -668,7 +674,7 @@ mode to edit fish shell files
 ** Which Key
 #+BEGIN_SRC emacs-lisp
   (use-package which-key
-    :diminish which-key-mode
+    :diminish (which-key . "")
     :ensure t
     :init
     (which-key-mode))
